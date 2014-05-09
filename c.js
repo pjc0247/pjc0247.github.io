@@ -64,11 +64,29 @@ getColorList = function(pixels, w,h){
   
   return candidates;
 }
+
+crushImage = function(pixels, w,h, crush){
+  for(i=0;i<w;i++){
+    for(j=0;j<h;j++){
+      idx = (j * w + i) * 4;
+      
+      pixels[idx+0] = parseInt( pixels[idx+0] / crush );
+      pixels[idx+1] = parseInt( pixels[idx+1] / crush );
+      pixels[idx+2] = parseInt( pixels[idx+2] / crush );
+    }
+  }
+  
+  return pixels;
+}
+downsampleImage = function(pixels, w,h, scale){
+
+}
 art.onload = function(){
-  dc.drawImage( art, 0,0, 32,32 );
+  dc.drawImage( art, 0,0, 300,300 );
   
-  var pixels = dc.getImageData( 0,0,32,32 );
+  var pixels = dc.getImageData( 0,0,300,300 );
   
+  dc.putImageData( pixels, 300,300,30,30 );
   var colorList = getColorList( pixels, 32,32 );
   
   console.log( colorList );
