@@ -75,6 +75,7 @@ crushImage = function(pixels, crush){
       crushed[idx+0] = parseInt( pixels[idx+0] / crush ) * crush;
       crushed[idx+1] = parseInt( pixels[idx+1] / crush ) * crush;
       crushed[idx+2] = parseInt( pixels[idx+2] / crush ) * crush;
+      crushed[idx+3] = 255;
     }
   }
   
