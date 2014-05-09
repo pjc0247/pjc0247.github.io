@@ -39,10 +39,13 @@ getColorList = function(pixels, w,h){
         }
       
         if( flag == true ){
-          candidates.push( map[k] );
+          max.key = k;
+          max.hit = map[k];
         }
       }
     }
+    
+    candidates.push( k );
   }
   
   return candidates;
