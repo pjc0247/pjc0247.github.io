@@ -13,7 +13,7 @@ getColorList = function(pixels, w,h){
   /* 빈도맵을 만든다 */
   for(i=0;i<w;i++){
     for(j=0;j<h;j++){
-      idx = (j * w * 4 + i * 4);
+      idx = (j * w + i) * 4;
       key = pixels[idx + 0] + "," + pixels[idx+1] + "," + pixels[idx+2];
       
       console.log(key);
