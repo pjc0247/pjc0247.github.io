@@ -175,7 +175,7 @@ refresh = function(){
   dc.fillText( "Threshold(" + threshold_val + ")", 500,350 );
   var offset = 0;
   for(color in colorList){
-    df.fillStyle = "rgb(0,0,0)";
+    dc.fillStyle = "rgb(0,0,0)";
     dc.fillRect( offset*50 + 500-2, 400-2,4 +25 + (5-offset)*5,4+25 + (5-offset)*5 );
     
     dc.fillStyle = "rgb(" + colorList[color] + ")";
