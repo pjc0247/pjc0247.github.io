@@ -86,6 +86,8 @@ downsampleImage = function(img, x,y, scale){
   dc.drawImage( img, x,y, sw,sh );
   var pixels = dc.getImageData( x,y, sw,sh );
   
+  console.log(pixels);
+  
   dc.putImageData( pixels, 300,0 );
 }
 art.onload = function(){
