@@ -147,7 +147,7 @@ refresh = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.fillText( "Source", 0,60 );
+  dc.fillText( "Source", 0,50 );
   dc.drawImage( art, 0,30, 300,300 );
   
   var pixels = dc.getImageData( 0,30,300,300 );
@@ -161,16 +161,16 @@ refresh = function(){
   
   dc.font = "80px Arial";
   
-  dc.fillText( "⇾", 350,200 );
-  dc.fillText( "⇾" ,750,200 );
+  dc.fillText( "⇾", 320,200 );
+  dc.fillText( "⇾" ,720,200 );
   dc.putImageData( crushed, 400,30 );
   dc.putImageData( downsampled, 800,30 );
   
   dc.font = "30px Arial";
-  dc.fillText( "crush(" + crush_val + ")", 410,70);
-  dc.fillText( "downsample(" + downsampling_val + ")", 810,70);
+  dc.fillText( "crush(" + crush_val + ")", 410,50);
+  dc.fillText( "downsample(" + downsampling_val + ")", 810,50);
   
-  var colorList = getColorList( pixels, 32,32 );
+  var colorList = getColorList( downsampled, 300,300 );
   
   console.log( colorList );
   
@@ -179,7 +179,7 @@ refresh = function(){
     dc.fillStyle = "rgb(" + colorList[color] + ")";
     console.log( "rgb(" + colorList[color] + ");" );
     
-    dc.fillRect( offset*50,32,50,50 );
+    dc.fillRect( offset*50,32,25 + (5-offset)*5,25 + (5-offset)*5 );
     dc.fill();
     offset += 1;
   }
