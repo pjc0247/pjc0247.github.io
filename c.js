@@ -176,10 +176,10 @@ refresh = function(){
   var offset = 0;
   for(color in colorList){
     dc.fillStyle = "rgb(0,0,0)";
-    dc.fillRect( offset*50 + 500-2, 400-2,4 +25 + (5-offset)*5,4+25 + (5-offset)*5 );
+    dc.fillRect( offset*55 + 500-2, 400-2,4 +25 + (5-offset)*5,4+25 + (5-offset)*5 );
     
     dc.fillStyle = "rgb(" + colorList[color] + ")";
-    dc.fillRect( offset*50 + 500, 400,25 + (5-offset)*5,25 + (5-offset)*5 );
+    dc.fillRect( offset*55 + 500, 400,25 + (5-offset)*5,25 + (5-offset)*5 );
     
     dc.fill();
     offset += 1;
