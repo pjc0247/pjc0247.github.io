@@ -114,7 +114,9 @@ art.onload = function(){
   var pixels = dc.getImageData( 0,0,300,300 );
   
   var downsampled = downsampleImage( pixels, 0.5 );
+  var rescaled = scaleImage( pixels, 0.5 );
   
+  dc.putImageData( rescaled, 600, 0 );
   dc.putImageData( downsampled, 300,0 );
   
   var colorList = getColorList( pixels, 32,32 );
