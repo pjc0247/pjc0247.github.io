@@ -78,22 +78,44 @@ crushImage = function(pixels, w,h, crush){
   
   return pixels;
 }
-downsampleImage = function(img, x,y, scale){
-  var sw = 300 * scale;
-  var sh = 300 * scale;
-  
-  dc.drawImage( img, x,y, sw,sh );
-  var pixels = dc.getImageData( x,y, sw,sh );
-  
-  dc.scale( 2, 2 );
-  dc.putImageData( pixels, 300,0 );
+function scaleImage(imageData, scale) {
+  var scaled = c.createImageData(imageData.width * scale, imageData.height * scale);
+
+  for(var row = 0; row < imageData.height; row++) {
+    for(var col = 0; col < imageData.width; col++) {
+      var sourcePixel = [
+        imageData.data[(row * imageData.width + col) * 4 + 0],
+        imageData.data[(row * imageData.width + col) * 4 + 1],
+        imageData.data[(row * imageData.width + col) * 4 + 2],
+        imageData.data[(row * imageData.width + col) * 4 + 3]
+      ];
+      for(var y = 0; y < scale; y++) {
+        var destRow = row * scale + y;
+        for(var x = 0; x < scale; x++) {
+          var destCol = col * scale + x;
+          for(var i = 0; i < 4; i++) {
+            scaled.data[(destRow * scaled.width + destCol) * 4 + i] =
+              sourcePixel[i];
+          }
+        }
+      }
+    }
+  }
+  return scaled;
+}
+downsampleImage = function(pixels, scale){
+  var downsampled = scaleImage( pixels, scale );
+  var upsampled = scaleImage( downsampled, 1/scale );
+  return upsampled;
 }
 art.onload = function(){
   dc.drawImage( art, 0,0, 300,300 );
   
   var pixels = dc.getImageData( 0,0,300,300 );
   
-  downsampleImage( art, 300,0, 0.5 );
+  var downsampled = downsampleImage( pixels, 0.5 );
+  
+  dc.putImageData( downsampled, 300,0 );
   
   var colorList = getColorList( pixels, 32,32 );
   
