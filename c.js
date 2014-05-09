@@ -79,7 +79,7 @@ crushImage = function(pixels, w,h, crush){
   return pixels;
 }
 function scaleImage(imageData, scale) {
-  var scaled = c.createImageData(imageData.width * scale, imageData.height * scale);
+  var scaled = dc.createImageData(imageData.width * scale, imageData.height * scale);
 
   for(var row = 0; row < imageData.height; row++) {
     for(var col = 0; col < imageData.width; col++) {
