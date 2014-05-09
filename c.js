@@ -159,7 +159,7 @@ refresh = function(){
   dc.fillText( "Luminance Map", 0,370 );
   dc.putImageData( lmap, 0,400 );
   
-  dc.font = "30px Arial";
+  dc.font = "20px Arial";
   
   dc.fillText( "⎯⎯ crush(" + crush_val + ") ⎯⎯⇾", 310,30 );
   dc.putImageData( crushed, 400,30 );
