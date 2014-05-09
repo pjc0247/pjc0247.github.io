@@ -153,8 +153,8 @@ refresh = function(){
   var pixels = dc.getImageData( 0,30,300,300 );
   
   var lmap = createLuminanceMap( pixels );
-  var crushed = crushImage( pixels, 50 );
-  var downsampled = downsampleImage( crushed, 0.1 );
+  var crushed = crushImage( pixels, crush_val );
+  var downsampled = downsampleImage( crushed, downsampling_val * 0.01 );
   
   dc.fillText( "Luminance Map", 0,370 );
   dc.putImageData( lmap, 0,400 );
@@ -188,5 +188,10 @@ art.onload = function(){
 var crush_slider = document.getElementById("crush");
 crush_slider.onchange = function(e){
   crush_val = e.target.value;
+  refresh();
+}
+var downsampling_slider = document.getElementById("downsampling");
+downsampling_slider.onchange = function(e){
+  downsampling_val = e.target.value;
   refresh();
 }
