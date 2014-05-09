@@ -115,6 +115,7 @@ downsampleImage = function(pixels, scale){
 createLuminanceMap = function(pixels){
   var map = dc.createImageData(pixels.width, pixels.height);
   
+  console.log( pixels );
   for(i=0;i<pixels.width;i++){
     for(j=0;j<pixels.height;j++){
       var idx = (j * pixels.width + i) * 4;
@@ -132,6 +133,8 @@ createLuminanceMap = function(pixels){
     }
   }
   
+  
+  console.log( map );
   return map;
 }
 
