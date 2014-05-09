@@ -143,7 +143,7 @@ createLuminanceMap = function(pixels){
 }
 
 refresh = function(){
-  dc.clearRect( 0,0, canvas.width, canvans.height );
+  dc.clearRect( 0,0, canvas.width, canvas.height );
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
