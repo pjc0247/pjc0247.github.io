@@ -142,7 +142,7 @@ art.onload = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.fillText( "Original Image", 0,0 );
+  dc.fillText( "Original Image", 0,15 );
   dc.drawImage( art, 0,30, 300,300 );
   
   var pixels = dc.getImageData( 0,30,300,300 );
