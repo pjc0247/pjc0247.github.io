@@ -70,9 +70,9 @@ crushImage = function(pixels, w,h, crush){
     for(j=0;j<h;j++){
       idx = (j * w + i) * 4;
       
-      pixels[idx+0] = parseInt( pixels[idx+0] / crush );
-      pixels[idx+1] = parseInt( pixels[idx+1] / crush );
-      pixels[idx+2] = parseInt( pixels[idx+2] / crush );
+      pixels[idx+0] = parseInt( pixels[idx+0] / crush ) * crush;
+      pixels[idx+1] = parseInt( pixels[idx+1] / crush ) * crush;
+      pixels[idx+2] = parseInt( pixels[idx+2] / crush ) * crush;
     }
   }
   
@@ -113,11 +113,11 @@ art.onload = function(){
   
   var pixels = dc.getImageData( 0,0,300,300 );
   
-  var downsampled = downsampleImage( pixels, 0.5 );
-  var rescaled = scaleImage( pixels, 0.5 );
+  var downsampled = downsampleImage( pixels, 0.1 );
+  var crushed = crushImage( downsampled, 20 );
   
-  dc.putImageData( rescaled, 600, 0 );
   dc.putImageData( downsampled, 300,0 );
+  dc.putImageData( crushed, 600,0 );
   
   var colorList = getColorList( pixels, 32,32 );
   
