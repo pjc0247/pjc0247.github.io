@@ -129,7 +129,7 @@ createLuminanceMap = function(pixels){
       map.data[idx+0] = parseInt( l );
       map.data[idx+1] = parseInt( l );
       map.data[idx+2] = parseInt( l );
-      map.data[idx+3] = parseInt( l );
+      map.data[idx+3] = 255;
     }
   }
   
@@ -139,17 +139,17 @@ createLuminanceMap = function(pixels){
 }
 
 art.onload = function(){
-  dc.drawImage( art, 0,0, 300,300 );
+  dc.drawImage( art, 0,0, 200,200 );
   
-  var pixels = dc.getImageData( 0,0,300,300 );
+  var pixels = dc.getImageData( 0,0,200,200 );
   
   var lmap = createLuminanceMap( pixels );
   var crushed = crushImage( pixels, 50 );
   var downsampled = downsampleImage( crushed, 0.1 );
   
-  dc.putImageData( downsampled, 600,0 );
+  dc.putImageData( downsampled, 500,0 );
   dc.putImageData( crushed, 300,0 );
-  dc.putImageData( lmap, 0,0 );
+  dc.putImageData( lmap, 0,250 );
   
   var colorList = getColorList( pixels, 32,32 );
   
