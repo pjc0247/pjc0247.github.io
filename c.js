@@ -72,7 +72,7 @@ crushImage = function(pixels, crush){
     for(j=0;j<pixels.height;j++){
       idx = (j * pixels.width + i) * 4;
       
-      crushed.data[idx+0] = 255;//parseInt( pixels[idx+0] / crush ) * crush;
+      crushed.data[idx+0] = parseInt( pixels.data[idx+0] / crush ) * crush;
       crushed.data[idx+1] = parseInt( pixels.data[idx+1] / crush ) * crush;
       crushed.data[idx+2] = parseInt( pixels.data[idx+2] / crush ) * crush;
       crushed.data[idx+3] = 255;
@@ -116,7 +116,7 @@ art.onload = function(){
   
   var pixels = dc.getImageData( 0,0,300,300 );
   
-  var crushed = crushImage( pixels, 20 );
+  var crushed = crushImage( pixels, 50 );
   var downsampled = downsampleImage( crushed, 0.1 );
   
   dc.putImageData( downsampled, 600,0 );
