@@ -168,7 +168,7 @@ refresh = function(){
   
   dc.font = "30px Arial";
   dc.fillText( "crush(" + crush_val + ")", 410,50);
-  dc.fillText( "downsample(" + downsampling_val + ")", 810,50);
+  dc.fillText( "downsample(" + (100-downsampling_val) + ")", 810,50);
   
   var colorList = getColorList( downsampled, 300,300 );
   
@@ -197,7 +197,7 @@ crush_slider.onchange = function(e){
 }
 var downsampling_slider = document.getElementById("downsampling");
 downsampling_slider.onchange = function(e){
-  downsampling_val = 100 - e.target.value;
+  downsampling_val = 101 - e.target.value;
   refresh();
 }
 
