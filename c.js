@@ -79,7 +79,13 @@ crushImage = function(pixels, w,h, crush){
   return pixels;
 }
 downsampleImage = function(img, x,y, scale){
-  //dc.drawImage( img, x,y, img.width * scale, img.height * scale );
+  var sw = img.width * scale;
+  var sh = img.height * scale;
+  
+  dc.drawImage( img, x,y, sw,sh );
+  var pixels = dc.getImageData( x,y, sw,sh );
+  
+  dc.putImageData( pixels, 300,0 );
 }
 art.onload = function(){
   dc.drawImage( art, 0,0, 300,300 );
