@@ -5,6 +5,20 @@ var dc = canvas.getContext("2d");
 var art = new Image();
 art.src = "album.png";
 
+getLuminance = function(color){
+  var rgb = color.split(',');
+  
+  
+}
+getColorDistance = function(color1, color2){
+  var rgb1 = color.split(',');
+  var rgb2 = color.split(',');
+  
+  return Math.abs(rgb1[0] - rgb2[0]) +
+    Math.abs(rgb1[1] - rgb2[1]) +
+    Math.abs(rgb1[2] - rgb2[2]);
+}
+
 getColorList = function(pixels, w,h){
   var colorList = new Array();
   var map = new Array();
@@ -34,7 +48,7 @@ getColorList = function(pixels, w,h){
       if( map[k] > max.hit ){
         var flag = true;
         for(c in candidates){
-          if( candidates[c] == k )
+          if( getColorDistance( candidates[c], k) < 100 )
             flag = false;
         }
       
