@@ -161,14 +161,14 @@ refresh = function(){
   
   dc.font = "80px Arial";
   
-  dc.fillText( "⎯⇾", 310,150 );
-  dc.fillText( "⎯⇾" ,710,150 );
+  dc.fillText( "⇾", 310,250 );
+  dc.fillText( "⇾" ,710,250 );
   dc.putImageData( crushed, 400,30 );
   dc.putImageData( downsampled, 800,30 );
   
-  dc.font = "40px Arial";
+  dc.font = "30px Arial";
   dc.fillText( "crush(" + crush_val + ")", 410,40);
-  dc.fillText( "downsample(" + downsampling_val + ")", 710,40);
+  dc.fillText( "downsample(" + downsampling_val + ")", 7810,40);
   
   var colorList = getColorList( pixels, 32,32 );
   
