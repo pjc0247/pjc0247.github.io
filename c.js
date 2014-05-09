@@ -17,7 +17,10 @@ getColorList = function(pixels, w,h){
       key =
         pixels.data[idx + 0] + "," + pixels.data[idx+1] + "," + pixels.data[idx+2];
       
-      map[key] += 1;
+      if( map[key] == undefined )
+        map[key] = 1;
+      else
+        map[key] += 1;
     }
   }
   
