@@ -11,8 +11,8 @@ getLuminance = function(color){
   
 }
 getColorDistance = function(color1, color2){
-  var rgb1 = color.split(',');
-  var rgb2 = color.split(',');
+  var rgb1 = color1.split(',');
+  var rgb2 = color2.split(',');
   
   return Math.abs(rgb1[0] - rgb2[0]) +
     Math.abs(rgb1[1] - rgb2[1]) +
