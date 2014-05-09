@@ -20,6 +20,7 @@ getColorList = function(pixels, w,h){
     }
   }
   
+  console.log( pixels );
   for(i=0;i<5;i++){
     var max = {
      key : "", /* 색상 키 */
