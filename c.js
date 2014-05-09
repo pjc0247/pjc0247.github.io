@@ -113,7 +113,7 @@ art.onload = function(){
   
   var pixels = dc.getImageData( 0,0,300,300 );
   
-  var crushed = crushImage( downsampled, 20 );
+  var crushed = crushImage( pixels, 20 );
   var downsampled = downsampleImage( crushed, 0.1 );
   
   dc.putImageData( downsampled, 600,0 );
