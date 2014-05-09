@@ -82,6 +82,7 @@ downsampleImage = function(img, x,y, scale){
   var sw = img.width * scale;
   var sh = img.height * scale;
   
+  console.log( sw, sh );
   dc.drawImage( img, x,y, sw,sh );
   var pixels = dc.getImageData( x,y, sw,sh );
   
