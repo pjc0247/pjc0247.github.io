@@ -2,6 +2,10 @@
 var canvas = document.getElementById("canvas");
 var dc = canvas.getContext("2d");
 
+var crush_val = 20;
+var downsampling_val = 10;
+var threshold_val = 0;
+
 var art = new Image();
 art.src = "album.png";
 
@@ -138,7 +142,7 @@ createLuminanceMap = function(pixels){
   return map;
 }
 
-art.onload = function(){
+refresh = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
@@ -155,7 +159,8 @@ art.onload = function(){
   dc.putImageData( lmap, 0,400 );
   
   dc.font = "50px Arial";
-  dc.fillText( "⎯⎯⎯⎯⇾", 310,30 );
+  
+  dc.fillText( "⎯⎯ crush(" + crush_val + ") ⎯⎯⇾", 310,30 );
   dc.putImageData( crushed, 400,30 );
   dc.putImageData( downsampled, 800,30 );
   
@@ -172,5 +177,15 @@ art.onload = function(){
     dc.fill();
     offset += 1;
   }
-  
+}
+
+art.onload = function(){
+  refresh();
+}
+
+
+var crush_slider = document.getElementById("crush");
+crush_slider.onchange = function(e){
+  crush_val = e.value;
+  refresh();
 }
