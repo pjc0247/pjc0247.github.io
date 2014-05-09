@@ -16,11 +16,11 @@ getColorList = function(pixels, w,h){
       idx = (j * w * 4 + i * 4);
       key = pixels[idx + 0] + "," + pixels[idx+1] + "," + pixels[idx+2];
       
+      console.log(key);
       map[key] += 1;
     }
   }
   
-  console.log( pixels );
   for(i=0;i<5;i++){
     var max = {
      key : "", /* 색상 키 */
