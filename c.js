@@ -187,5 +187,6 @@ art.onload = function(){
 var crush_slider = document.getElementById("crush");
 crush_slider.onchange = function(e){
   crush_val = e.value;
+  console.log( e );
   refresh();
 }
