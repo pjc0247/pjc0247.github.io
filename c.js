@@ -92,13 +92,7 @@ art.onload = function(){
   
   var pixels = dc.getImageData( 0,0,300,300 );
   
-  var img = new Image();
-  img.src = pixels;
-  img.width = 300;
-  img.height = 300;
-  img.onload = function(){
-    dc.drawImage( img, 300,0,300,300 );
-  }
+  downsampleImage( art, 300,0, 0.5 );
   
   dc.putImageData( pixels, 300,300,30,30 );
   var colorList = getColorList( pixels, 32,32 );
