@@ -139,17 +139,24 @@ createLuminanceMap = function(pixels){
 }
 
 art.onload = function(){
-  dc.drawImage( art, 0,0, 200,200 );
+  dc.font = "30px Arial";
   
-  var pixels = dc.getImageData( 0,0,200,200 );
+  dc.fillText(0,0, "Original Image");
+  dc.drawImage( art, 0,30, 300,300 );
+  
+  var pixels = dc.getImageData( 0,30,300,300 );
   
   var lmap = createLuminanceMap( pixels );
   var crushed = crushImage( pixels, 50 );
   var downsampled = downsampleImage( crushed, 0.1 );
   
-  dc.putImageData( downsampled, 500,0 );
-  dc.putImageData( crushed, 300,0 );
-  dc.putImageData( lmap, 0,250 );
+  dc.fillText(0,370, "Luminance Map");
+  dc.putImageData( lmap, 0,400 );
+  
+  dc.font = "50px Arial";
+  dc.fillText( 310,30, "→");
+  dc.putImageData( crushed, 350,30 );
+  dc.putImageData( downsampled, 700,30 );
   
   var colorList = getColorList( pixels, 32,32 );
   
