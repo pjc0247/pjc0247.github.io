@@ -10,6 +10,7 @@ getColorList = function(pixels, w,h){
   var map = new Array();
   var candidates = new Array();
   
+  console.log(pixels);
   /* 빈도맵을 만든다 */
   for(i=0;i<w;i++){
     for(j=0;j<h;j++){
