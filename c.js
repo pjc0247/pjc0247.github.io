@@ -148,16 +148,16 @@ refresh = function(){
   dc.fillStyle = "rgb(0,0,0)";
   
   dc.drawImage( art, 0,30, 300,300 );
-  dc.fillText( "Source", 0,50 );
   
   var pixels = dc.getImageData( 0,30,300,300 );
+  dc.fillText( "Source", 0,50 );
   
   var lmap = createLuminanceMap( pixels );
   var crushed = crushImage( pixels, crush_val );
   var downsampled = downsampleImage( crushed, downsampling_val * 0.01 );
   
-  dc.fillText( "Luminance Map", 0,370 );
-  dc.putImageData( lmap, 0,400 );
+  dc.fillText( "Luminance Map", 0,350 );
+  dc.putImageData( lmap, 0,330 );
   
   dc.font = "80px Arial";
   
@@ -172,12 +172,9 @@ refresh = function(){
   
   var colorList = getColorList( downsampled, 300,300 );
   
-  console.log( colorList );
-  
   var offset = 0;
   for(color in colorList){
     dc.fillStyle = "rgb(" + colorList[color] + ")";
-    console.log( "rgb(" + colorList[color] + ");" );
     
     dc.fillRect( offset*50 + 500,32 + 400,25 + (5-offset)*5,25 + (5-offset)*5 );
     dc.fill();
