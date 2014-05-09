@@ -143,6 +143,7 @@ createLuminanceMap = function(pixels){
 }
 
 refresh = function(){
+  dc.clearRect( 0,0, canvas.width, canvans.height );
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
@@ -186,7 +187,6 @@ art.onload = function(){
 
 var crush_slider = document.getElementById("crush");
 crush_slider.onchange = function(e){
-  crush_val = e.value;
-  console.log( e );
+  crush_val = e.target.value;
   refresh();
 }
