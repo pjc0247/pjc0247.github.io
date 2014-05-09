@@ -45,7 +45,7 @@ getColorList = function(pixels, w,h){
       }
     }
     
-    candidates.push( k );
+    candidates.push( max.key );
   }
   
   return candidates;
@@ -58,5 +58,13 @@ art.onload = function(){
   var colorList = getColorList( pixels, 32,32 );
   
   console.log( colorList );
-  dc.fillStyle = "rgb(" + colorList[0] + ");";
-}
+  
+  var offset = 0;
+  for(color in colorList){
+    dc.fillStyle = "rgb(" + colorList[0] + ");";
+    
+    dc.fillRect( offset*50,32,50,50 )
+    
+    offset += 1;
+  }
+  
