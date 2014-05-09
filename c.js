@@ -95,7 +95,6 @@ art.onload = function(){
   
   downsampleImage( art, 300,0, 0.5 );
   
-  dc.putImageData( pixels, 300,300,30,30 );
   var colorList = getColorList( pixels, 32,32 );
   
   console.log( colorList );
