@@ -72,14 +72,14 @@ crushImage = function(pixels, crush){
     for(j=0;j<pixels.height;j++){
       idx = (j * pixels.width + i) * 4;
       
-      pixels[idx+0] = 255;//parseInt( pixels[idx+0] / crush ) * crush;
-      pixels[idx+1] = parseInt( pixels[idx+1] / crush ) * crush;
-      pixels[idx+2] = parseInt( pixels[idx+2] / crush ) * crush;
-      //pixels[idx+3] = 255;
+      crushed.data[idx+0] = 255;//parseInt( pixels[idx+0] / crush ) * crush;
+      crushed.data[idx+1] = parseInt( pixels.data[idx+1] / crush ) * crush;
+      crushed.data[idx+2] = parseInt( pixels.data[idx+2] / crush ) * crush;
+      crushed.data[idx+3] = 255;
     }
   }
   
-  return pixels;
+  return crushed;
 }
 function scaleImage(imageData, scale) {
   var scaled = dc.createImageData(imageData.width * scale, imageData.height * scale);
