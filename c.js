@@ -63,8 +63,9 @@ art.onload = function(){
   for(color in colorList){
     dc.fillStyle = "rgb(" + colorList[0] + ");";
     
-    dc.fillRect( offset*50,32,50,50 )
+    dc.fillRect( offset*50,32,50,50 );
     
     offset += 1;
   }
   
+}
