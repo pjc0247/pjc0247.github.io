@@ -90,9 +90,9 @@ function scaleImage(imageData, scale) {
         imageData.data[(row * imageData.width + col) * 4 + 3]
       ];
       for(var y = 0; y < scale; y++) {
-        var destRow = row * scale + y;
+        var destRow = praseInt( row * scale + y );
         for(var x = 0; x < scale; x++) {
-          var destCol = col * scale + x;
+          var destCol = parseInt( col * scale + x );
           for(var i = 0; i < 4; i++) {
             scaled.data[(destRow * scaled.width + destCol) * 4 + i] =
               sourcePixel[i];
