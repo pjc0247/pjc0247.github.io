@@ -159,9 +159,10 @@ refresh = function(){
   dc.fillText( "Luminance Map", 0,370 );
   dc.putImageData( lmap, 0,400 );
   
-  dc.font = "20px Arial";
+  dc.font = "15px Arial";
   
-  dc.fillText( "⎯⎯ crush(" + crush_val + ") ⎯⎯⇾", 310,30 );
+  dc.fillText( "⎯⎯ crush(" + crush_val + ") ⎯⎯⇾", 310,150 );
+  dc.fillText( "⎯⎯ downsampling(" + downsampling_val + ") ⎯⎯⇾" ,710,150 );
   dc.putImageData( crushed, 400,30 );
   dc.putImageData( downsampled, 800,30 );
   
