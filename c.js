@@ -147,7 +147,7 @@ refresh = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.fillText( "Original Image", 0,30 );
+  dc.fillText( "Source", 0,60 );
   dc.drawImage( art, 0,30, 300,300 );
   
   var pixels = dc.getImageData( 0,30,300,300 );
@@ -159,16 +159,16 @@ refresh = function(){
   dc.fillText( "Luminance Map", 0,370 );
   dc.putImageData( lmap, 0,400 );
   
-  dc.font = "50px Arial";
+  dc.font = "80px Arial";
   
-  dc.fillText( "⎯⎯⎯⇾", 310,150 );
-  dc.fillText( "⎯⎯⎯⇾" ,710,150 );
+  dc.fillText( "⎯⇾", 310,150 );
+  dc.fillText( "⎯⇾" ,710,150 );
   dc.putImageData( crushed, 400,30 );
   dc.putImageData( downsampled, 800,30 );
   
   dc.font = "40px Arial";
   dc.fillText( "crush(" + crush_val + ")", 410,40);
-  dc.fillText( "downsample(" + downsampling + ")", 710,40);
+  dc.fillText( "downsample(" + downsampling_val + ")", 710,40);
   
   var colorList = getColorList( pixels, 32,32 );
   
