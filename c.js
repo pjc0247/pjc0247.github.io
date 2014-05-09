@@ -4,7 +4,7 @@ var dc = canvas.getContext("2d");
 
 var crush_val = 20;
 var downsampling_val = 10;
-var threshold_val = 0;
+var threshold_val = 100;
 
 var art = new Image();
 art.src = "album.png";
@@ -52,7 +52,7 @@ getColorList = function(pixels, w,h){
       if( map[k] > max.hit ){
         var flag = true;
         for(c in candidates){
-          if( getColorDistance( candidates[c], k) < 100 )
+          if( getColorDistance( candidates[c], k) < threshold_val )
             flag = false;
         }
       
@@ -147,8 +147,8 @@ refresh = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.fillText( "Source", 0,50 );
   dc.drawImage( art, 0,30, 300,300 );
+  dc.fillText( "Source", 0,50 );
   
   var pixels = dc.getImageData( 0,30,300,300 );
   
@@ -198,6 +198,11 @@ crush_slider.onchange = function(e){
 var downsampling_slider = document.getElementById("downsampling");
 downsampling_slider.onchange = function(e){
   downsampling_val = 101 - e.target.value;
+  refresh();
+}
+var threshold_slider = document.getElementById("threshold");
+threshold_slider.onchange = function(e){
+  threshold_val = e.target.value;
   refresh();
 }
 
