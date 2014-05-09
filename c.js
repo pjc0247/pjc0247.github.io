@@ -11,7 +11,7 @@ getColorList = function(pixels, w,h){
   
   for(i=0;i<w;i++){
     for(j=0;j<h;j++){
-      idx = (j * width * 4 + i * 4);
+      idx = (j * w * 4 + i * 4);
       key = pixels[idx + 0] + "," + pixels[idx+1] + "," + pixels[idx+2];
       
       map[key] += 1;
@@ -21,7 +21,7 @@ getColorList = function(pixels, w,h){
   return colorList;
 }
 art.onload = function(){
-  dc.drawImage( art, 0,0, 300,300 );
+  dc.drawImage( art, 0,0, 32,32 );
   
   var pixels = dc.getImageData( 0,0,32,32 );
   
