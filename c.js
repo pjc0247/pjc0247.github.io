@@ -117,13 +117,12 @@ createLuminanceMap = function(pixels){
   
   for(i=0;i<pixels.width;i++){
     for(j=0;j<pixels.height;j++){
-      idx = (j * pixels.width + i) * 4;
+      var idx = (j * pixels.width + i) * 4;
       
-      rgb =
+      var color =
         pixels.data[idx + 0] + "," + pixels.data[idx+1] + "," + pixels.data[idx+2];
-      l = getLuminance( rgb );
+      var l = getLuminance( color );
       
-      console.log ( rgb );
     //  console.log( l );
       
       map[idx+0] = l * 255;
