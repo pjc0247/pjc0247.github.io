@@ -28,7 +28,6 @@ getColorList = function(pixels, w,h){
     }; 
     
     for(k in map){
-      console.log(k);
       if( map[k] > max.hit ){
         var flag = true;
         for(c in candidates){
