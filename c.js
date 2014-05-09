@@ -147,28 +147,28 @@ refresh = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.drawImage( art, 0,30, 300,300 );
+  dc.drawImage( art, 0,0, 300,300 );
   
-  var pixels = dc.getImageData( 0,30,300,300 );
-  dc.fillText( "Source", 0,50 );
+  var pixels = dc.getImageData( 0,0,300,300 );
+  dc.fillText( "Source", 0,20 );
   
   var lmap = createLuminanceMap( pixels );
   var crushed = crushImage( pixels, crush_val );
   var downsampled = downsampleImage( crushed, downsampling_val * 0.01 );
   
-  dc.putImageData( lmap, 0,330 );
-  dc.fillText( "Luminance Map", 0,350 );
+  dc.putImageData( lmap, 0,300 );
+  dc.fillText( "Luminance Map", 0,300 );
   
   dc.font = "80px Arial";
   
-  dc.fillText( "⇾", 320,200 );
-  dc.fillText( "⇾" ,720,200 );
-  dc.putImageData( crushed, 400,30 );
-  dc.putImageData( downsampled, 800,30 );
+  dc.fillText( "⇾", 320,170 );
+  dc.fillText( "⇾" ,720,170 );
+  dc.putImageData( crushed, 400,0 );
+  dc.putImageData( downsampled, 800,0 );
   
   dc.font = "30px Arial";
-  dc.fillText( "crush(" + crush_val + ")", 410,50);
-  dc.fillText( "downsample(" + (100-downsampling_val) + ")", 810,50);
+  dc.fillText( "crush(" + crush_val + ")", 410,20);
+  dc.fillText( "downsample(" + (100-downsampling_val) + ")", 810,20);
   
   var colorList = getColorList( downsampled, 300,300 );
   
@@ -177,7 +177,7 @@ refresh = function(){
   for(color in colorList){
     dc.fillStyle = "rgb(" + colorList[color] + ")";
     
-    dc.fillRect( offset*50 + 500,32 + 400,25 + (5-offset)*5,25 + (5-offset)*5 );
+    dc.fillRect( offset*50 + 500, 400,25 + (5-offset)*5,25 + (5-offset)*5 );
     dc.fill();
     offset += 1;
   }
