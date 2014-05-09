@@ -129,7 +129,7 @@ createLuminanceMap = function(pixels){
       map.data[idx+0] = parseInt( l );
       map.data[idx+1] = parseInt( l );
       map.data[idx+2] = parseInt( l );
-      map.data[idx+3] = 255;
+      map.data[idx+3] = parseInt( l );
     }
   }
   
