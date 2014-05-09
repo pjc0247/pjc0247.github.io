@@ -142,7 +142,7 @@ art.onload = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.fillText(0,0, "Original Image");
+  dc.fillText( "Original Image", 0,0 );
   dc.drawImage( art, 0,30, 300,300 );
   
   var pixels = dc.getImageData( 0,30,300,300 );
@@ -151,11 +151,11 @@ art.onload = function(){
   var crushed = crushImage( pixels, 50 );
   var downsampled = downsampleImage( crushed, 0.1 );
   
-  dc.fillText(0,370, "Luminance Map");
+  dc.fillText( "Luminance Map", 0,370 );
   dc.putImageData( lmap, 0,400 );
   
   dc.font = "50px Arial";
-  dc.fillText( 310,30, "→");
+  dc.fillText( "→", 310,30 );
   dc.putImageData( crushed, 350,30 );
   dc.putImageData( downsampled, 700,30 );
   
