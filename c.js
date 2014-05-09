@@ -179,7 +179,7 @@ refresh = function(){
     dc.fillStyle = "rgb(" + colorList[color] + ")";
     console.log( "rgb(" + colorList[color] + ");" );
     
-    dc.fillRect( offset*50,32,25 + (5-offset)*5,25 + (5-offset)*5 );
+    dc.fillRect( offset*50 + 500,32 + 400,25 + (5-offset)*5,25 + (5-offset)*5 );
     dc.fill();
     offset += 1;
   }
@@ -197,6 +197,14 @@ crush_slider.onchange = function(e){
 }
 var downsampling_slider = document.getElementById("downsampling");
 downsampling_slider.onchange = function(e){
-  downsampling_val = e.target.value;
+  downsampling_val = 100 - e.target.value;
   refresh();
 }
+
+
+
+dc.font = "80px Arial";
+dc.fillStyle = "rgb(0,0,0)";
+  
+dc.fillText( "Please Wait...", 50,50 );
+dc.fill();
