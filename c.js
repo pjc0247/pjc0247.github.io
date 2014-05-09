@@ -156,8 +156,8 @@ refresh = function(){
   var crushed = crushImage( pixels, crush_val );
   var downsampled = downsampleImage( crushed, downsampling_val * 0.01 );
   
-  dc.fillText( "Luminance Map", 0,350 );
   dc.putImageData( lmap, 0,330 );
+  dc.fillText( "Luminance Map", 0,350 );
   
   dc.font = "80px Arial";
   
@@ -172,6 +172,7 @@ refresh = function(){
   
   var colorList = getColorList( downsampled, 300,300 );
   
+  dc.fillText( "Threshold(" + threshold_val + ")", 500,350 );
   var offset = 0;
   for(color in colorList){
     dc.fillStyle = "rgb(" + colorList[color] + ")";
@@ -208,5 +209,5 @@ threshold_slider.onchange = function(e){
 dc.font = "80px Arial";
 dc.fillStyle = "rgb(0,0,0)";
   
-dc.fillText( "Please Wait...", 50,50 );
+dc.fillText( "Please Wait...", 50,70 );
 dc.fill();
