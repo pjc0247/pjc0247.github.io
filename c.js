@@ -138,14 +138,13 @@ art.onload = function(){
   
   var pixels = dc.getImageData( 0,0,300,300 );
   
-  
+  var lmap = createLuminanceMap( pixels );
   var crushed = crushImage( pixels, 50 );
   var downsampled = downsampleImage( crushed, 0.1 );
-  var lmap = createLuminanceMap( pixels );
   
   dc.putImageData( downsampled, 600,0 );
   dc.putImageData( crushed, 300,0 );
-  dc.putImageData( lmap, 0,300 );
+  dc.putImageData( lmap, 0,0 );
   
   var colorList = getColorList( pixels, 32,32 );
   
