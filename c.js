@@ -116,11 +116,12 @@ art.onload = function(){
   
   var pixels = dc.getImageData( 0,0,300,300 );
   
-  var crushed = crushImage( pixels, 50 );
-  var downsampled = downsampleImage( crushed, 0.1 );
   
-  dc.putImageData( downsampled, 600,0 );
-  dc.putImageData( crushed, 300,0 );
+  var downsampled = downsampleImage( pixels, 0.1 );
+  var crushed = crushImage( downsampled, 50 );
+  
+  dc.putImageData( downsampled, 300,0 );
+  dc.putImageData( crushed, 600,0 );
   
   var colorList = getColorList( pixels, 32,32 );
   
