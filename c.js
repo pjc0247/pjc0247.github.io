@@ -70,7 +70,7 @@ crushImage = function(pixels, crush){
   
   for(i=0;i<pixels.width;i++){
     for(j=0;j<pixels.height;j++){
-      idx = (j * w + i) * 4;
+      idx = (j * pixels.width + i) * 4;
       
       crushed[idx+0] = parseInt( pixels[idx+0] / crush ) * crush;
       crushed[idx+1] = parseInt( pixels[idx+1] / crush ) * crush;
