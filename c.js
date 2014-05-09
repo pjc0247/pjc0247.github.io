@@ -157,7 +157,7 @@ refresh = function(){
   var downsampled = downsampleImage( crushed, downsampling_val * 0.01 );
   
   dc.putImageData( lmap, 0,300 );
-  dc.fillText( "Luminance Map", 0,300 );
+  dc.fillText( "Luminance Map", 0,330 );
   
   dc.font = "80px Arial";
   
@@ -175,9 +175,12 @@ refresh = function(){
   dc.fillText( "Threshold(" + threshold_val + ")", 500,350 );
   var offset = 0;
   for(color in colorList){
-    dc.fillStyle = "rgb(" + colorList[color] + ")";
+    df.fillStyle = "rgb(0,0,0)";
+    dc.fillRect( offset*50 + 500-2, 400-2,4 +25 + (5-offset)*5,4+25 + (5-offset)*5 );
     
+    dc.fillStyle = "rgb(" + colorList[color] + ")";
     dc.fillRect( offset*50 + 500, 400,25 + (5-offset)*5,25 + (5-offset)*5 );
+    
     dc.fill();
     offset += 1;
   }
