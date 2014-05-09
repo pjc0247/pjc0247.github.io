@@ -8,7 +8,7 @@ art.src = "album.png";
 getLuminance = function(color){
   var rgb = color.split(',');
   
-  
+  return rgb[0] * 0.299 + rgb[1] * 0.587 + rgb[2] * 0.114;
 }
 getColorDistance = function(color1, color2){
   var rgb1 = color1.split(',');
@@ -111,6 +111,28 @@ downsampleImage = function(pixels, scale){
   var upsampled = scaleImage( downsampled, 1/scale );
   return upsampled;
 }
+
+createLuminanceMap = function(pixels){
+  var map = dc.createImageData(pixels.width, pixels.height);
+  
+  for(i=0;i<pixels.width;i++){
+    for(j=0;j<pixels.height;j++){
+      idx = (j * pixels.width + i) * 4;
+      
+      rgb =
+        pixels.data[idx + 0] + "," + pixels.data[idx+1] + "," + pixels.data[idx+2];
+      l = getLuminance( rgb );
+      
+      map[idx+0] = l * 255;
+      map[idx+1] = l * 255;
+      map[idx+2] = l * 255;
+      map[idx+3] = 255;
+    }
+  }
+  
+  return map;
+}
+
 art.onload = function(){
   dc.drawImage( art, 0,0, 300,300 );
   
@@ -119,9 +141,11 @@ art.onload = function(){
   
   var crushed = crushImage( pixels, 50 );
   var downsampled = downsampleImage( crushed, 0.1 );
+  var lmap = createLuminanceMap( pixels );
   
   dc.putImageData( downsampled, 600,0 );
   dc.putImageData( crushed, 300,0 );
+  dc.putImageData( lmap, 0,300 );
   
   var colorList = getColorList( pixels, 32,32 );
   
