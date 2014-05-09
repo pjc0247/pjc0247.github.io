@@ -140,6 +140,7 @@ createLuminanceMap = function(pixels){
 
 art.onload = function(){
   dc.font = "30px Arial";
+  dc.fillStyle = "rgb(0,0,0)";
   
   dc.fillText(0,0, "Original Image");
   dc.drawImage( art, 0,30, 300,300 );
