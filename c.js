@@ -147,8 +147,9 @@ refresh = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.globalAlpha = 0.1;
+  dc.globalAlpha = 1;
   dc.drawImage( art, 0,0, 300,300 );
+  /*
   dc.globalAlpha = 0.2;
   dc.drawImage( art, 0,0, 300+3,300+3 );
   dc.drawImage( art, 0,0, 300-3,300-3 );
@@ -158,7 +159,7 @@ refresh = function(){
   dc.globalAlpha = 0.6;
   dc.drawImage( art, 0,0, 300+7,300+7 );
   dc.drawImage( art, 0,0, 300-7,300-7 );
-  
+  */
   var pixels = dc.getImageData( 0,0,300,300 );
   dc.fillText( "Source", 0,20 );
   
