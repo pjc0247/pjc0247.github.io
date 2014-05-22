@@ -147,15 +147,15 @@ refresh = function(){
   dc.font = "30px Arial";
   dc.fillStyle = "rgb(0,0,0)";
   
-  dc.globalAlpha = 0.6;
+  dc.globalAlpha = 0.1;
   dc.drawImage( art, 0,0, 300,300 );
-  dc.globalAlpha = 0.3;
+  dc.globalAlpha = 0.2;
   dc.drawImage( art, 0,0, 300+3,300+3 );
   dc.drawImage( art, 0,0, 300-3,300-3 );
-  dc.globalAlpha = 0.2;
+  dc.globalAlpha = 0.3;
   dc.drawImage( art, 0,0, 300+5,300+5 );
   dc.drawImage( art, 0,0, 300-5,300-5 );
-  dc.globalAlpha = 0.1;
+  dc.globalAlpha = 0.6;
   dc.drawImage( art, 0,0, 300+7,300+7 );
   dc.drawImage( art, 0,0, 300-7,300-7 );
   
