@@ -8,11 +8,18 @@
         70% { transform:scale(1.1,1.1); }
         100% { transform:scale(10,1.0); }
       }
-      
+      @-webkit-keyframes myfirst
+{
+0%   {background:red; left:0px; top:0px;}
+25%  {background:yellow; left:200px; top:0px;}
+50%  {background:blue; left:200px; top:200px;}
+75%  {background:green; left:0px; top:200px;}
+100% {background:red; left:0px; top:0px;}
+}
       #img {
         scale : 0.5%;
-        -webkit-animation: bounce 1s infinite;
-        animation: bounce 1s infinite;
+        -webkit-animation: myfirst 1s infinite;
+        animation: myfirst 1s infinite;
       }
     </style>
   </head>
