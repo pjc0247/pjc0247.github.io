@@ -10,18 +10,23 @@
       }
       
       @-webkit-keyframes myfirst
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
+      {
+        0%   {background:red; left:0px; top:0px;}
+        25%  {background:yellow; left:200px; top:0px;}
+        50%  {background:blue; left:200px; top:200px;}
+        75%  {background:green; left:0px; top:200px;}
+        100% {background:red; left:0px; top:0px;}
+      }
+      
       div {
+        width:100px;
+        height:100px;
         -webkit-animation: myfirst 10s;
       }
       #img {
-        zoomd : 50.5%;
+        
+        width : 200px;
+        height : 200px;
         -webkit-animation: myfirst 10s;
         animation: myfirst 10s infinite;
       }
@@ -29,7 +34,7 @@
   </head>
   
   <body>
-    <wimg src="album.png" id="img" />
+    <img src="album.png" id="img" />
     <div></div>
   </body>
 </html>
