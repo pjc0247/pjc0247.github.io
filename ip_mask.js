@@ -1,0 +1,29 @@
+/*
+  mask.js
+*/
+
+IP_R = 0 // red channel
+IP_G = 1 // green channel
+IP_B = 2 // blue channel 
+IP_A = 3 // alpha channel
+
+var ip_reset_masks = function(dst){
+  dst.ip_roi = null;
+  dst.ip_channel_mask = null;
+  dst.ip_luminance_mask = null;
+}
+
+var ip_set_roi = function(dst, x,y,w,h){
+  dst.ip_roi = [x,y,w,h];
+}
+
+var ip_set_channel_mask = function(dst, ch, min,max){
+  if( dst.ip_channel_mask == null )
+    dst.ip_channel_mask = [];
+  
+  dst.ip_channel_mask[ch] = [min, max];
+}
+
+void ip_set_luminance_mask = function(dst, ch, min,max){
+  dst.ip_luminance_mask = [min, max];
+}
