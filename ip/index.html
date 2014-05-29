@@ -51,7 +51,7 @@
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
     
-    var morp = ip_morp_erode( cont, 3,3 );
+    var morp = ip_morp_erode( cont, 2,2 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
