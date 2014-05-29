@@ -59,8 +59,8 @@
     var morp_e = ip_morp_erode( cont, 2,2 );
     var morp_d = ip_test_morp_dilate( cont, 2,2 );
     
-    var morp2_e = ip_test_morp_erode( original, 1,2 );
-    var morp2_d = ip_test_morp_dilate( original, 1,2 );
+    var morp2_e = ip_test_morp_erode( original, 3,3 );
+    var morp2_d = ip_test_morp_dilate( original, 3,3 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
