@@ -20,14 +20,14 @@ var ip_get_rgba_at = function(dst, x,y){
            dst.data[idx+3] ];
 }
 
-void ip_set_rgb_at = function(dst, x,y, r,g,b){
+var ip_set_rgb_at = function(dst, x,y, r,g,b){
   var idx = (y * dst.width + x) * 4;
   
   dst.data[idx+0] = r;
   dst.data[idx+1] = g;
   dst.data[idx+2] = b;
 }
-void ip_set_rgba_at = function(dst, x,y, r,g,b,a){
+var ip_set_rgba_at = function(dst, x,y, r,g,b,a){
   var idx = (y * dst.width + x) * 4;
   
   dst.data[idx+0] = r;
