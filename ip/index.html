@@ -12,6 +12,8 @@
       2. ROI를 설정하고 darken, lighten을 수행 <br>
       3. G,B채널에 마스크를 씌우고 lighten을 수행 <br>
       4. 2번 이미지에 contour_4x를 수행 <br>
+      5. 4번 이미지에 Morphology 2x2 침식 연산 
+      6. 4번 이미지에 Morphology 2x2 팽창 연산
     </h1>
   </body>
 </html>
@@ -51,8 +53,8 @@
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
     
-    var morp_e = ip_morp_erode( cont, 2,2 );
-    var morp_d = ip_morp_dilate( cont, 2,2 );
+    var morp_e = ip_morp_erode( cont, 2,1 );
+    var morp_d = ip_morp_dilate( cont, 2,1 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
