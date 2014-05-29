@@ -25,7 +25,8 @@ var ip_morp_erode = function(src, w,h){
         }
       }
       */
-      if( true )
+      var px = ip_get_rgb_at( src, i,j );
+      if( px[0] )
         ip_set_rgba_at( dst, u,v, 0,0,0,255 );
       else
         ip_set_rgba_at( dst, u,v, 255,255,255,255 );
