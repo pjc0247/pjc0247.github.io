@@ -6,6 +6,8 @@ var ip_morp_erode = function(src, w,h){
   var roi = ip_get_roi( src );
   var dst = ip_create_img( roi[2],roi[3] );
   
+  console.log( roi );
+  
   for(i=roi[0],u=0;i<roi[2];i++,u++){
     for(j=roi[1],v=0;j<roi[3];j++,v++){
       
