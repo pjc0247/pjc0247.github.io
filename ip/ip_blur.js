@@ -23,13 +23,13 @@ var _ip_gauss_boxes = function(sigma, n){
     return sizes;
 }
 
-function _ip_gauss_blur(src, dst, w, h, r) {
+function _ip_gauss_blur(src,dst, w,h, r) {
     var bxs = _ip_gauss_boxes(r, 3);
     _ip_box_blur(src, dst, w, h, (bxs[0]-1)/2);
     _ip_box_blur(dst, src, w, h, (bxs[1]-1)/2);
     _ip_box_blur(src, dst, w, h, (bxs[2]-1)/2);
 }
-function _ip_box_blur(src, dst, w, h, r) {
+function _ip_box_blur(src,dst, w,h, r) {
     for(i=0;i<w;i++){
         for(j=0;j<h;j++) {
             var cr = 0,cg = 0,cb = 0;
@@ -37,7 +37,7 @@ function _ip_box_blur(src, dst, w, h, r) {
             var st_x = Math.max( 0, i-r );
             var st_y = Math.max( 0, j-r );
             var to_x = Math.min( w, i+r+1 );
-            var to_y = Math.min( h, i+r+1 );
+            var to_y = Math.min( h, j+r+1 );
             
             for(k=st_x;k<to_x;k++){
                 for(l=st_y;l<to_y;l++) {
