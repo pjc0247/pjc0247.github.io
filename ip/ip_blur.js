@@ -26,8 +26,8 @@ var _ip_gauss_boxes = function(sigma, n){
 function _ip_gauss_blur(src,dst, w,h, r) {
     var bxs = _ip_gauss_boxes(r, 3);
     _ip_box_blur(src, dst, w, h, (bxs[0]-1)/2);
-    _ip_box_blur(dst, src, w, h, (bxs[1]-1)/2);
-    _ip_box_blur(src, dst, w, h, (bxs[2]-1)/2);
+    //_ip_box_blur(dst, src, w, h, (bxs[1]-1)/2);
+    //_ip_box_blur(src, dst, w, h, (bxs[2]-1)/2);
 }
 function _ip_box_blur(src,dst, w,h, r) {
     for(i=0;i<w;i++){
