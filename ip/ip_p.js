@@ -88,12 +88,11 @@ var ip_contour_4x = function(src, threshold){
       if( i != roi[0] ){
         var left = ip_get_rgb_at( src, i-1, j );
         
-        console.log( pv, left );
         if( ip_rgb_distance(
           pv[0],pv[1],pv[2],
           left[0],left[1],left[2]) >= threshold ){
           
-          ip_set_rgba_at( dst, u,v, 255,255,255 );
+          ip_set_rgba_at( dst, u,v, 255,255,255,255 );
           continue;    
         }
       }
@@ -104,7 +103,7 @@ var ip_contour_4x = function(src, threshold){
           pv[0],pv[1],pv[2],
           right[0],right[1],right[2]) >= threshold ){
           
-          ip_set_rgba_at( dst, u,v, 255,255,255 );
+          ip_set_rgba_at( dst, u,v, 255,255,255,255 );
           continue;    
         }
       }
@@ -115,7 +114,7 @@ var ip_contour_4x = function(src, threshold){
           pv[0],pv[1],pv[2],
           up[0],up[1],up[2]) >= threshold ){
           
-          ip_set_rgba_at( dst, u,v, 255,255,255 );
+          ip_set_rgba_at( dst, u,v, 255,255,255,255 );
           continue;    
         }
       }
@@ -126,7 +125,7 @@ var ip_contour_4x = function(src, threshold){
           pv[0],pv[1],pv[2],
           down[0],down[1],down[2]) >= threshold ){
           
-          ip_set_rgba_at( dst, u,v, 255,255,255 );
+          ip_set_rgba_at( dst, u,v, 255,255,255,255 );
           continue;    
         }
       }
