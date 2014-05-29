@@ -24,6 +24,27 @@ var ip_set_channel_mask = function(dst, ch, min,max){
   dst.ip_channel_mask[ch] = [min, max];
 }
 
-void ip_set_luminance_mask = function(dst, ch, min,max){
+var ip_set_luminance_mask = function(dst, ch, min,max){
   dst.ip_luminance_mask = [min, max];
+}
+
+var ip_get_roi = function(dst){
+  if( dst.ip_roi == null )
+    return [0,0, dst.width,dst.height];
+  else
+    return dst.ip_roi;
+}
+var ip_get_channel_mask = function(dst, ch){
+  if( dst.ip_channel_mask == null )
+    return [0,255];
+  else if( dst.ip_channel_mask[ch] == null )
+    return [0,255];
+  else
+    return dst.ip_channel_mask[ch];
+}
+var ip_get_luminance_mask = function(dst){
+  if( dst.ip_luminance_mask == null )
+    return [0,1];
+  else
+    return dst.ip_luminance_mask;
 }
