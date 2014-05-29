@@ -3,7 +3,7 @@
 */
 
 var ip_is_in_range = function(val, range){
-  if( range[0] >= val && range[1] <= val )
+  if( range[0] <= val && range[1] >= val )
     return true;
   else
     return false;
