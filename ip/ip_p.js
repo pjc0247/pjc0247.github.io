@@ -27,7 +27,7 @@ var ip_darken = function(dst, val){
       for(k=IP_R;k<=IP_A;k++){
         if( ip_is_in_range( dst.data[idx+k], ch_mask[k] ) ){
           console.log("Q");
-          dst.data[idx+k] = Math.min( dst.data[idx+k], 255 );
+          dst.data[idx+k] = Math.min( dst.data[idx+k]+val, 255 );
         }
       }
     }
