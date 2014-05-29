@@ -3,7 +3,7 @@
   </head>
   
   <body>
-    <canvas id="canvas" width="1540px" height="600px">
+    <canvas id="canvas" width="1540px" height="900px">
     </canvas>
     
     <br>
@@ -16,6 +16,8 @@
       6. 4번 이미지에 Morphology 2x2 팽창 연산<br>
       7. 원본 이미지에 Morphology 3x3 침식 연산<br>
       8. 원본 이미지에 Morphology 3x3 팽창 연산<br>
+      9. 원본 이미지에 Morphology 3x3 열기 연산<br>
+      10. 원본 이미지에 Morphology 3x3 닫기 연산<br>
     </h1>
   </body>
 </html>
@@ -65,6 +67,9 @@
     var morp2_ed = ip_test_morp_erode( original, 3,3 );
     morp3_ed = ip_test_morp_dilate( morp2_ed, 3,3 );
     
+    var morp2_de = ip_test_morp_dilate( original, 3,3 );
+    morp3_de = ip_test_morp_erode( morp3_de, 3,3 );
+    
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
     dc.putImageData( cont, 900,0 );
@@ -72,6 +77,7 @@
     dc.putImageData( morp_d, 300,300 );
     dc.putImageData( morp2_e, 600,300 );
     dc.putImageData( morp2_d, 900,300 );
-    dc.putImageData( morp3_ed, 1200,300 );
+    dc.putImageData( morp3_ed, 0,600 );
+    dc.putImageData( morp3_ed, 300,600 );
   }
 </script>
