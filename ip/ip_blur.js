@@ -36,8 +36,8 @@ function _ip_box_blur(src,dst, w,h, r) {
             
             var st_x = Math.max( 0, i-r );
             var st_y = Math.max( 0, j-r );
-            var to_x = Math.min( w, i+r+1 );
-            var to_y = Math.min( h, j+r+1 );
+            var to_x = Math.min( w-1, i+r+1 );
+            var to_y = Math.min( h-1, j+r+1 );
             
             for(k=st_x;k<to_x;k++){
                 for(l=st_y;l<to_y;l++) {
