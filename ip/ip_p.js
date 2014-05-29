@@ -9,7 +9,7 @@ var ip_is_in_range = function(val, range){
     return false;
 }
 
-var ip_darken = function(dst, val){
+var ip_lighten = function(dst, val){
   var roi = ip_get_roi( dst );
   var ch_mask = [];
   
@@ -32,4 +32,7 @@ var ip_darken = function(dst, val){
       }
     }
   }
+}
+var ip_darken = function(dst, val){
+  ip_lighten( dst, -val );
 }
