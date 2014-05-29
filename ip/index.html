@@ -54,7 +54,7 @@
     var cont = ip_contour_4x( pixels, 110 );
     
     var morp_e = ip_morp_erode( cont, 2,2 );
-    var morp_d = ip_morp_dilate( cont, 2,2 );
+    var morp_d = ip_test_morp_dilate( cont, 2,2 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
