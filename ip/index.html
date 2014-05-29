@@ -37,7 +37,7 @@
     
     ip_set_channel_mask( pixels2, IP_G, 0,0 );
     ip_set_channel_mask( pixels2, IP_B, 0,0 );
-    ip_darken( pixels2, 50 );
+    ip_lighten( pixels2, 50 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 )
