@@ -8,6 +8,17 @@ var ip_is_in_range = function(val, range){
   else
     return false;
 }
+var ip_is_ary_equal = function(ary1, ary2){
+  if( ary1.length != ary2.length )
+    return false;
+  
+  for(i=0;i<ary1.length;i++){
+    if( ary1[i] != ary2[i] )
+      return false;
+  }
+  return true;
+}
+
 var ip_get_rgb_at = function(dst, x,y){
   var idx = (y * dst.width + x) * 4;
   
@@ -34,6 +45,31 @@ var ip_set_rgba_at = function(dst, x,y, r,g,b,a){
   dst.data[idx+1] = g;
   dst.data[idx+2] = b;
   dst.data[idx+3] = a;
+}
+
+var ip_sub = function(src1, src2){
+  var roi1 = ip_get_roi( src1 );
+  var roi2 = ip_get_roi( src2 );
+  
+  if( ip_is_ary_equal( roi1,roi2 ) == false )
+    return null;
+  
+  var dst = ip_create_img( roi1[2], roi1[3] );
+  
+  for(i=roi1[0],u=0;i<roi1[2];i++,u++){
+    for(j=roi1[1],v=0;j<roi1[3];j++,v++){
+      var p1 = ip_get_rgb_at( src1, i,j );
+      var p2 = ip_get_rgb_at( src2, i,j );
+      
+      ip_set_rgba_at(
+        Math.max( src1[0]-src2[0], 0),
+        Math.max( src1[1]-src2[1], 0),
+        Math.max( src1[2]-src2[2], 0),
+        255 );
+    }
+  }
+  
+  return dst;
 }
 
 var ip_lighten = function(dst, val){
