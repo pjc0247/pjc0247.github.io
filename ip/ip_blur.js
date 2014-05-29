@@ -52,8 +52,6 @@ function boxBlur(scl, tcl, w, h, r) {
             	tcl,
             	cr/((r+r+1)*(r+r+1)),cg/((r+r+1)*(r+r+1)),cb/((r+r+1)*(r+r+1)),
             	255);
-            ip_set_rgba_at(
-            	tcl, 255,255,0,255);
         }
     }
 }
