@@ -21,14 +21,12 @@ var ip_darken = function(dst, val){
     console.log( ch_mask[i] );
   }
   
-  for(i=roi.x;i<roi.width;i++){
-    for(j=roi.y;j<roi.height;j++){
+  for(i=roi[0];i<roi[2];i++){
+    for(j=roi[1];j<roi[3];j++){
       var idx = (j * dst.width + i) * 4;
       
-      console.log(idx);
       for(k=IP_R;k<=IP_B;k++){
         if( ip_is_in_range( dst.data[idx+k], ch_mask[k] ) ){
-          console.log("Q");
           dst.data[idx+k] = Math.min( dst.data[idx+k]+val, 255 );
         }
       }
