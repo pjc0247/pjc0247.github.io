@@ -13,8 +13,11 @@ var ip_darken = function(dst, val){
   var roi = ip_get_roi( dst );
   var ch_mask = [];
   
+  console.log( roi );
+  
   for(i=0;i<4;i++){
     ch_mask[i] = ip_get_channel_mask( dst, i );
+    console.log( ch_mask[i] );
   }
   
   for(i=roi.x;i<roi.width;i++){
