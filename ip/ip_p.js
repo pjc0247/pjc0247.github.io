@@ -85,9 +85,10 @@ var ip_contour_4x = function(src, threshold){
     for(j=roi[1],v=0;j<roi[3];j++,v++){
       var pv = ip_get_rgb_at( src, i,j ); // pivot
       
-      if( i != 0 ){
+      if( i != roi[0] ){
         var left = ip_get_rgb_at( src, i-1, j );
         
+        console.log( pv, left );
         if( ip_rgb_distance(
           pv[0],pv[1],pv[2],
           left[0],left[1],left[2]) >= threshold ){
@@ -107,7 +108,7 @@ var ip_contour_4x = function(src, threshold){
           continue;    
         }
       }
-      if( j != 0 ){
+      if( j != roi[1] ){
         var up = ip_get_rgb_at( src, i, j-1 );
         
         if( ip_rgb_distance(
