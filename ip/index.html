@@ -39,7 +39,7 @@
     ip_set_channel_mask( pixels2, IP_B, 0,0 );
     ip_lighten( pixels2, 50 );
     
-    ip_reset_masks( pixels2 );
+    //ip_reset_masks( pixels2 );
     var cont = ip_contour_4x( pixels2, 100 );
     
     dc.putImageData( pixels,300,0 );
