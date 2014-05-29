@@ -26,8 +26,8 @@ var _ip_gauss_boxes = function(sigma, n){
 function gaussBlur(scl, tcl, w, h, r) {
     var bxs = _ip_gauss_boxes(r, 3);
     boxBlur(scl, tcl, w, h, (bxs[0]-1)/2);
-    boxBlur(tcl, scl, w, h, (bxs[1]-1)/2);
-    boxBlur(scl, tcl, w, h, (bxs[2]-1)/2);
+///    boxBlur(tcl, scl, w, h, (bxs[1]-1)/2);
+//    boxBlur(scl, tcl, w, h, (bxs[2]-1)/2);
 }
 function boxBlur(scl, tcl, w, h, r) {
     for(var i=0; i<h; i++){
