@@ -26,8 +26,8 @@ var _ip_gauss_boxes = function(sigma, n){
 function _ip_gauss_blur(src,dst, w,h, r) {
     var bxs = _ip_gauss_boxes(r, 3);
     _ip_box_blur(src, dst, w, h, (bxs[0]-1)/2);
-    //_ip_box_blur(dst, src, w, h, (bxs[1]-1)/2);
-    //_ip_box_blur(src, dst, w, h, (bxs[2]-1)/2);
+    _ip_box_blur(dst, src, w, h, (bxs[1]-1)/2);
+    _ip_box_blur(src, dst, w, h, (bxs[2]-1)/2);
 }
 function _ip_box_blur(src,dst, w,h, r) {
     for(i=0;i<w;i++){
@@ -39,9 +39,24 @@ function _ip_box_blur(src,dst, w,h, r) {
             var to_x = Math.min( w-1, i+r+1 );
             var to_y = Math.min( h-1, j+r+1 );
             
+            /*
             for(k=st_x;k<to_x;k++){
                 for(l=st_y;l<to_y;l++) {
                     var p = ip_get_rgb_at( src, k,l );
+                    
+                    cr += p[0];
+                    cg += p[1];
+                    cb += p[2];
+                }
+            }
+            */
+            
+            for(var iy=i-r; iy<i+r+1; iy++){
+                for(var ix=j-r; ix<j+r+1; ix++) {
+                    var x = Math.min(w-1, Math.max(0, ix));
+                    var y = Math.min(h-1, Math.max(0, iy));
+                    
+                    var p = ip_get_rgb_at( src, x,y );
                     
                     cr += p[0];
                     cg += p[1];
