@@ -92,7 +92,6 @@ var ip_contour_4x = function(src, threshold){
           pv[0],pv[1],pv[2],
           left[0],left[1],left[2]) >= threshold ){
           
-          console.log("Q");
           ip_set_rgba_at( dst, u,v, 255,255,255,255 );
           continue;    
         }
@@ -131,7 +130,7 @@ var ip_contour_4x = function(src, threshold){
         }
       }
       
-      ip_set_rgba_at( dst, u,v, 0,0,0 );
+      //ip_set_rgba_at( dst, u,v, 0,0,0 );
     }
   }
   
