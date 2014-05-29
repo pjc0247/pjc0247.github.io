@@ -54,7 +54,7 @@
     
     ip_set_channel_mask( pixels2, IP_G, 0,0 );
     ip_set_channel_mask( pixels2, IP_B, 0,0 );
-    pixels2 = ip_blur( pixels2, 10 );
+    pixels2 = ip_blur( pixels2, 3 );
     
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
