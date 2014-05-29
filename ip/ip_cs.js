@@ -42,3 +42,11 @@ var ip_hsv_to_rgb = function(h,s,v){
   }
   return [r * 255, g * 255, b * 255];
 }
+
+var ip_rgb_distance = function(r1,g1,b1, r2,g2,b2){
+  return Math.sqrt(
+      Math.pow( r1-r2, 2 ) +
+      Math.pow( g1-g2, 2 ) +
+      Math.pow( b1-b2, 2 ) );
+}
+
