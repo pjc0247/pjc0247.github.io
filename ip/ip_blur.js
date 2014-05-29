@@ -5,7 +5,7 @@
 var ip_blur = function(src, r){
   var dst = ip_create_img( src.width, src.height );
   
-  _ip_gauss_blur( src.data,dst.data, src.width,src.height, r ); 
+  gaussBlur( src,dst, src.width,src.height, r ); 
   
   return dst;
 }
@@ -23,36 +23,35 @@ var _ip_gauss_boxes = function(sigma, n){
     return sizes;
 }
 
-var _ip_gauss_blur = function(scl, tcl, w, h, r) {
+function gaussBlur(scl, tcl, w, h, r) {
     var bxs = _ip_gauss_boxes(r, 3);
-    _ip_box_blur(scl, tcl, w, h, (bxs[0]-1)/2);
-    _ip_box_blur(tcl, scl, w, h, (bxs[1]-1)/2);
-    _ip_box_blur(scl, tcl, w, h, (bxs[2]-1)/2);
+    boxBlur(scl, tcl, w, h, (bxs[0]-1)/2);
+    boxBlur(tcl, scl, w, h, (bxs[1]-1)/2);
+    boxBlur(scl, tcl, w, h, (bxs[2]-1)/2);
 }
-var _ip_box_blur = function(scl, tcl, w, h, r) {
-    for(var i=0; i<scl.length; i++) tcl[i] = scl[i];
-    _ip_box_blur_h(tcl, scl, w, h, r);
-    _ip_box_blur_t(scl, tcl, w, h, r);
-}
-var _ip_box_blur_h = function(scl, tcl, w, h, r) {
-    var iarr = 1 / (r+r+1);
-    for(var i=0; i<h; i++) {
-        var ti = i*w, li = ti, ri = ti+r;
-        var fv = scl[ti], lv = scl[ti+w-1], val = (r+1)*fv;
-        for(var j=0; j<r; j++) val += scl[ti+j];
-        for(var j=0  ; j<=r ; j++) { val += scl[ri++] - fv       ;   tcl[ti++] = Math.round(val*iarr); }
-        for(var j=r+1; j<w-r; j++) { val += scl[ri++] - scl[li++];   tcl[ti++] = Math.round(val*iarr); }
-        for(var j=w-r; j<w  ; j++) { val += lv        - scl[li++];   tcl[ti++] = Math.round(val*iarr); }
-    }
-}
-var _ip_box_blur_t = function(scl, tcl, w, h, r) {
-    var iarr = 1 / (r+r+1);
-    for(var i=0; i<w; i++) {
-        var ti = i, li = ti, ri = ti+r*w;
-        var fv = scl[ti], lv = scl[ti+w*(h-1)], val = (r+1)*fv;
-        for(var j=0; j<r; j++) val += scl[ti+j*w];
-        for(var j=0  ; j<=r ; j++) { val += scl[ri] - fv     ;  tcl[ti] = Math.round(val*iarr);  ri+=w; ti+=w; }
-        for(var j=r+1; j<h-r; j++) { val += scl[ri] - scl[li];  tcl[ti] = Math.round(val*iarr);  li+=w; ri+=w; ti+=w; }
-        for(var j=h-r; j<h  ; j++) { val += lv      - scl[li];  tcl[ti] = Math.round(val*iarr);  li+=w; ti+=w; }
+function boxBlur(scl, tcl, w, h, r) {
+    for(var i=0; i<h; i++){
+        for(var j=0; j<w; j++) {
+        	
+            var cr = 0;
+            var cg = 0;
+            var cb = 0;
+            for(var iy=i-r; iy<i+r+1; iy++){
+                for(var ix=j-r; ix<j+r+1; ix++) {
+                    var x = Math.min(w-1, Math.max(0, ix));
+                    var y = Math.min(h-1, Math.max(0, iy));
+                    var p = ip_get_rgb_at( scl, x,y );
+                    
+                    cr += p[0];
+                    cg += p[1];
+                    cb += p[2];
+                }
+            }
+            
+            ip_set_rgba_at(
+            	tcl,
+            	cr/((r+r+1)*(r+r+1),cg/((r+r+1)*(r+r+1),cb/((r+r+1)*(r+r+1),
+            	255);
+        }
     }
 }
