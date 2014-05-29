@@ -34,29 +34,11 @@ function _ip_box_blur(src,dst, w,h, r) {
         for(j=0;j<h;j++) {
             var cr = 0,cg = 0,cb = 0;
             
-            var st_x = Math.max( 0, i-r );
-            var st_y = Math.max( 0, j-r );
-            var to_x = Math.min( w-1, i+r+1 );
-            var to_y = Math.min( h-1, j+r+1 );
-            
-            /*
-            for(k=st_x;k<to_x;k++){
-                for(l=st_y;l<to_y;l++) {
+            for(k=i-r;k<i+r;k++){
+                for(l=j-r;l<j+r;l++){
+		    var x = Math.min(w, Math.max(0, k));
+                    var y = Math.min(h, Math.max(0, l));
                     var p = ip_get_rgb_at( src, k,l );
-                    
-                    cr += p[0];
-                    cg += p[1];
-                    cb += p[2];
-                }
-            }
-            */
-            
-            for(var iy=i-r; iy<i+r+1; iy++){
-                for(var ix=j-r; ix<j+r+1; ix++) {
-                    var x = Math.min(w, Math.max(0, ix));
-                    var y = Math.min(h, Math.max(0, iy));
-                    
-                    var p = ip_get_rgb_at( src, x,y );
                     
                     cr += p[0];
                     cg += p[1];
