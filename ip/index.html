@@ -15,4 +15,17 @@
 
 <script>
   console.log("hello");
+  
+  var img = new Image;
+  img.src = "../album.png";
+  img.onload = function(){
+    var canvas = document.getElementById("canvas");
+    var dc = canvas.getContext("2d");
+    
+    dc.drawImage( img, 0,0,300,300 );
+    
+    var pixels = dc.getImageData(0,0,300,300);
+    
+    ip_darken( pixels, 30 );
+  }
 </script>
