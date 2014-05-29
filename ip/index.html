@@ -26,6 +26,7 @@
     
     var pixels = dc.getImageData(0,0,300,300);
     
+    ip_set_roi( pixels, 50,50,200,200 )
     ip_darken( pixels, 100 );
     
     dc.putImageData( pixels,300,0 );
