@@ -14,6 +14,8 @@
       4. 2번 이미지에 contour_4x를 수행 <br>
       5. 4번 이미지에 Morphology 2x2 침식 연산<br> 
       6. 4번 이미지에 Morphology 2x2 팽창 연산<br>
+      7. 원본 이미지에 Morphology 2x2 침식 연산<br>
+      8. 원본 이미지에 Morphology 2x2 팽창 연산<br>
     </h1>
   </body>
 </html>
@@ -38,6 +40,7 @@
     dc.drawImage( img, 0,0,300,300 );
     
     var pixels = dc.getImageData(0,0,300,300);
+    var original = ip_copy_img( pixels );
     var pixels2 = ip_copy_img( pixels );
     
     ip_set_roi( pixels, 50,50,200,200 )
@@ -54,12 +57,17 @@
     var cont = ip_contour_4x( pixels, 110 );
     
     var morp_e = ip_morp_erode( cont, 2,2 );
-    var morp_d = ip_test_morp_dilate( pixels, 2,2 );
+    var morp_d = ip_test_morp_dilate( cont, 2,2 );
+    
+    var morp2_e = ip_test_morp_erode( original, 2,2 );
+    var morp2_d = ip_test_morp_dilate( original, 2,2 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
     dc.putImageData( cont, 900,0 );
     dc.putImageData( morp_e, 0,300 );
     dc.putImageData( morp_d, 300,300 );
+    dc.putImageData( morp2_e, 600,300 );
+    dc.putImageData( morp2_d, 900,300 );
   }
 </script>
