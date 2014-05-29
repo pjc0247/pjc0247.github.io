@@ -130,7 +130,7 @@ var ip_contour_4x = function(src, threshold){
         }
       }
       
-      //ip_set_rgba_at( dst, u,v, 0,0,0 );
+      ip_set_rgba_at( dst, u,v, 0,0,200 );
     }
   }
   
