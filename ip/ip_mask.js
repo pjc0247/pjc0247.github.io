@@ -29,8 +29,7 @@ var ip_set_luminance_mask = function(dst, ch, min,max){
 
 /* getter */
 var ip_get_roi = function(dst){
-  console.log(dst);
-  if( dst.ip_roi == undefined )
+  if( dst.ip_roi == null )
     return [0,0, dst.width,dst.height];
   else
     return dst.ip_roi;
