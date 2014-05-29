@@ -3,7 +3,7 @@
   </head>
   
   <body>
-    <canvas id="canvas" width="1540px" height="330px">
+    <canvas id="canvas" width="1540px" height="630px">
     </canvas>
     
     <br>
@@ -51,11 +51,13 @@
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
     
-    var morp = ip_morp_erode( cont, 2,2 );
+    var morp_e = ip_morp_erode( cont, 2,2 );
+    var morp_d = ip_morp_dilate( cont, 2,2 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
     dc.putImageData( cont, 900,0 );
-    dc.putImageData( morp, 1200,0 );
+    dc.putImageData( morp_e, 0,300 );
+    dc.putImageData( morp_d, 300,300 );
   }
 </script>
