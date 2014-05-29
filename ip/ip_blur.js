@@ -34,10 +34,10 @@ function _ip_box_blur(src,dst, w,h, r) {
         for(j=0;j<h;j++) {
             var cr = 0,cg = 0,cb = 0;
             
-            for(k=i-r;k<i+r;k++){
-                for(l=j-r;l<j+r;l++){
-		    var x = Math.min(w, Math.max(0, k));
-                    var y = Math.min(h, Math.max(0, l));
+            for(k=i-r;k<i+r+1;k++){
+                for(l=j-r;l<j+r+1;l++){
+		    var x = Math.min(w-1, Math.max(0, k));
+                    var y = Math.min(h-1, Math.max(0, l));
                     var p = ip_get_rgb_at( src, k,l );
                     
                     cr += p[0];
