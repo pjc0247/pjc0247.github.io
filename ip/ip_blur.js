@@ -51,7 +51,7 @@ function _ip_box_blur(src, dst, w, h, r) {
             
             var div = ((r+r+1)*(r+r+1));
             ip_set_rgba_at(
-            	dst, j,i,
+            	dst, i,j,
             	cr/div,cg/div,cb/div,
             	255);
         }
