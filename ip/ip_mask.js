@@ -15,7 +15,7 @@ var ip_reset_masks = function(dst){
 
 /* setter */
 var ip_set_roi = function(dst, x,y,w,h){
-  dst.ip_roi = [x,y,w,h];
+  dst.ip_roi = [x,y,x+w,y+h];
 }
 var ip_set_channel_mask = function(dst, ch, min,max){
   if( dst.ip_channel_mask == null )
