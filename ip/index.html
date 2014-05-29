@@ -27,5 +27,7 @@
     var pixels = dc.getImageData(0,0,300,300);
     
     ip_darken( pixels, 30 );
+    
+    dc.putImageData( pixels,300,0 );
   }
 </script>
