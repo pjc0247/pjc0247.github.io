@@ -50,6 +50,7 @@ function boxBlur(scl, tcl, w, h, r) {
             
             ip_set_rgba_at(
             	tcl,
+            	j,i,
             	cr/((r+r+1)*(r+r+1)),cg/((r+r+1)*(r+r+1)),cb/((r+r+1)*(r+r+1)),
             	255);
         }
