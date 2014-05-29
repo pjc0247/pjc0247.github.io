@@ -9,7 +9,7 @@ var ip_set_dc = function(dc){
 }
 
 var ip_create_img = function(width, height){
-  return dc.createImageData( width,height );
+  return ip_dc.createImageData( width,height );
 }
 var ip_copy_img = function(src){
   var dst = ip_create_img( src.width, src.height );
