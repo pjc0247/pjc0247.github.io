@@ -10,7 +10,7 @@ var ip_blur = function(src, r){
   return dst;
 }
 
-var _ip_guass_boxes = function(sigma, n){
+var _ip_gauss_boxes = function(sigma, n){
     var wIdeal = Math.sqrt((12*sigma*sigma/n)+1);  // Ideal averaging filter width 
     var wl = Math.floor(wIdeal);  if(wl%2==0) wl--;
     var wu = wl+2;
