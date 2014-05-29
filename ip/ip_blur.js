@@ -5,7 +5,7 @@
 var ip_blur = function(src, r){
   var dst = ip_create_img( src.width, src.height );
   
-  gaussBlur( src,dst, src.width,src.height, r ); 
+  _ip_gauss_blur( src,dst, src.width,src.height, r ); 
   
   return dst;
 }
@@ -23,24 +23,25 @@ var _ip_gauss_boxes = function(sigma, n){
     return sizes;
 }
 
-function gaussBlur(scl, tcl, w, h, r) {
+function _ip_gauss_blur(src, dst, w, h, r) {
     var bxs = _ip_gauss_boxes(r, 3);
-    boxBlur(scl, tcl, w, h, (bxs[0]-1)/2);
-///    boxBlur(tcl, scl, w, h, (bxs[1]-1)/2);
-//    boxBlur(scl, tcl, w, h, (bxs[2]-1)/2);
+    _ip_box_blur(src, dst, w, h, (bxs[0]-1)/2);
+    _ip_box_blur(src, dst, w, h, (bxs[1]-1)/2);
+    _ip_box_blur(src, dst, w, h, (bxs[2]-1)/2);
 }
-function boxBlur(scl, tcl, w, h, r) {
-    for(var i=0; i<h; i++){
-        for(var j=0; j<w; j++) {
-        	
-            var cr = 0;
-            var cg = 0;
-            var cb = 0;
-            for(var iy=i-r; iy<i+r+1; iy++){
-                for(var ix=j-r; ix<j+r+1; ix++) {
-                    var x = Math.min(w-1, Math.max(0, ix));
-                    var y = Math.min(h-1, Math.max(0, iy));
-                    var p = ip_get_rgb_at( scl, x,y );
+function _ip_box_blur(src, dst, w, h, r) {
+    for(i=0;i<w;i++){
+        for(j=0;j<h;j++) {
+            var cr = 0,cg = 0,cb = 0;
+            
+            var st_x = Math.max( 0, i-r );
+            var st_y = Math.max( 0, j-r );
+            var to_x = Math.min( w, i+r+1 );
+            var to_y = Math.min( h, i+r+1 );
+            
+            for(k=st_x;k<to_x;k++){
+                for(l=st_y;l<to_y;l++) {
+                    var p = ip_get_rgb_at( src, k,l );
                     
                     cr += p[0];
                     cg += p[1];
@@ -48,10 +49,10 @@ function boxBlur(scl, tcl, w, h, r) {
                 }
             }
             
+            var div = ((r+r+1)*(r+r+1));
             ip_set_rgba_at(
-            	tcl,
-            	j,i,
-            	cr/((r+r+1)*(r+r+1)),cg/((r+r+1)*(r+r+1)),cb/((r+r+1)*(r+r+1)),
+            	dst, j,i,
+            	cr/div,cg/div,cb/div,
             	255);
         }
     }
