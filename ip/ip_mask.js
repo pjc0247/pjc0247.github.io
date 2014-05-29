@@ -13,21 +13,21 @@ var ip_reset_masks = function(dst){
   dst.ip_luminance_mask = null;
 }
 
+/* setter */
 var ip_set_roi = function(dst, x,y,w,h){
   dst.ip_roi = [x,y,w,h];
 }
-
 var ip_set_channel_mask = function(dst, ch, min,max){
   if( dst.ip_channel_mask == null )
     dst.ip_channel_mask = [];
   
   dst.ip_channel_mask[ch] = [min, max];
 }
-
 var ip_set_luminance_mask = function(dst, ch, min,max){
   dst.ip_luminance_mask = [min, max];
 }
 
+/* getter */
 var ip_get_roi = function(dst){
   if( dst.ip_roi == null )
     return [0,0, dst.width,dst.height];
