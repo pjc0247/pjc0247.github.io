@@ -78,15 +78,15 @@ var ip_darken = function(dst, val){
 }
 
 var ip_contour_4x = function(src, threshold){
-  var roi = ip_get_roi( dst );
+  var roi = ip_get_roi( src );
   var dst = ip_create_img( roi[2], roi[3] );
   
   for(i=roi[0],u=0;i<roi[2];i++,u++){
     for(j=roi[1],v=0;j<roi[3];j++,v++){
-      var pv = ip_get_rgb_at( i,j ); // pivot
+      var pv = ip_get_rgb_at( src, i,j ); // pivot
       
       if( i != 0 ){
-        var left = ip_get_rgb_at( i-1, j );
+        var left = ip_get_rgb_at( src, i-1, j );
         
         if( ip_rgb_distance(
           pv[0],pv[1],pv[2],
@@ -97,7 +97,7 @@ var ip_contour_4x = function(src, threshold){
         }
       }
       if( i != roi[2] ){
-        var right = ip_get_rgb_at( i+1, j );
+        var right = ip_get_rgb_at( src, i+1, j );
         
         if( ip_rgb_distance(
           pv[0],pv[1],pv[2],
@@ -108,7 +108,7 @@ var ip_contour_4x = function(src, threshold){
         }
       }
       if( j != 0 ){
-        var up = ip_get_rgb_at( i, j-1 );
+        var up = ip_get_rgb_at( src, i, j-1 );
         
         if( ip_rgb_distance(
           pv[0],pv[1],pv[2],
@@ -119,7 +119,7 @@ var ip_contour_4x = function(src, threshold){
         }
       }
       if( j != roi[3] ){
-        var down = ip_get_rgb_at( i, j+1 );
+        var down = ip_get_rgb_at( src, i, j+1 );
         
         if( ip_rgb_distance(
           pv[0],pv[1],pv[2],
