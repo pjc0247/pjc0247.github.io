@@ -23,7 +23,7 @@ var _ip_guass_boxes = function(sigma, n){
     return sizes;
 }
 
-var _ip_gauss_blur = funcion(scl, tcl, w, h, r) {
+var _ip_gauss_blur = function(scl, tcl, w, h, r) {
     var bxs = _ip_gauss_boxes(r, 3);
     _ip_box_blur(scl, tcl, w, h, (bxs[0]-1)/2);
     _ip_box_blur(tcl, scl, w, h, (bxs[1]-1)/2);
