@@ -11,7 +11,7 @@
     <h1>
       1. original image <br>
       2. ROI를 설정하고 darken, lighten을 수행 <br>
-      3. G,B채널에 마스크를 씌우고 lighten을 수행 <br>
+      3. gaussian blur <br>
       4. 2번 이미지에 contour_4x를 수행 <br>
       5. 4번 이미지에 Morphology 2x2 침식 연산<br> 
       6. 4번 이미지에 Morphology 2x2 팽창 연산<br>
@@ -55,7 +55,7 @@
     
     ip_set_channel_mask( pixels2, IP_G, 0,0 );
     ip_set_channel_mask( pixels2, IP_B, 0,0 );
-    pixels2 = ip_blur( pixels2, 3 );
+    pixels2 = ip_blur( pixels2, 10 );
     
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
