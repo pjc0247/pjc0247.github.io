@@ -2,9 +2,9 @@
   mask.js
 */
 
-IP_R = 2 // red channel
+IP_R = 0 // red channel
 IP_G = 1 // green channel
-IP_B = 0 // blue channel 
+IP_B = 2 // blue channel 
 IP_A = 3 // alpha channel
 
 var ip_reset_masks = function(dst){
