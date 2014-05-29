@@ -9,7 +9,6 @@ var ip_morp_erode = function(src, w,h){
   for(i=roi[0],u=0;i<roi[2];i++,u++){
     for(j=roi[1],v=0;j<roi[3];j++,v++){
       
-      /*
       var to_x = Math.min( roi[2], i+w );
       var to_y = Math.min( roi[3], j+h );
       var f = false;
@@ -24,8 +23,8 @@ var ip_morp_erode = function(src, w,h){
           }
         }
       }
-      */
-      var px = ip_get_rgb_at( src, i,j );
+      
+      var px = ip_get_rgb_at(i,j);
       if( px[0] )
         ip_set_rgba_at( dst, u,v, 0,0,0,255 );
       else
