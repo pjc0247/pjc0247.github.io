@@ -27,6 +27,7 @@
 <script src="ip_mask.js"></script>
 <script src="ip_p.js"></script>
 <script src="ip_morp.js"></script>
+<script src="ip_blur.js"></script>
 
 <script>
   console.log("hello");
@@ -53,7 +54,7 @@
     
     ip_set_channel_mask( pixels2, IP_G, 0,0 );
     ip_set_channel_mask( pixels2, IP_B, 0,0 );
-    ip_lighten( pixels2, 50 );
+    ip_blur( pixels2, 10 );
     
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
