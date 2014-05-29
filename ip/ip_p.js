@@ -25,6 +25,7 @@ var ip_darken = function(dst, val){
     for(j=roi.y;j<roi.height;j++){
       var idx = (j * dst.width + i) * 4;
       
+      console.log(idx);
       for(k=IP_R;k<=IP_B;k++){
         if( ip_is_in_range( dst.data[idx+k], ch_mask[k] ) ){
           console.log("Q");
