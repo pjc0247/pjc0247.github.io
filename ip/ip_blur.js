@@ -53,8 +53,8 @@ function _ip_box_blur(src,dst, w,h, r) {
             
             for(var iy=i-r; iy<i+r+1; iy++){
                 for(var ix=j-r; ix<j+r+1; ix++) {
-                    var x = Math.min(w-1, Math.max(0, ix));
-                    var y = Math.min(h-1, Math.max(0, iy));
+                    var x = Math.min(w, Math.max(0, ix));
+                    var y = Math.min(h, Math.max(0, iy));
                     
                     var p = ip_get_rgb_at( src, x,y );
                     
