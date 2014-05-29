@@ -56,9 +56,9 @@ var ip_morp_dilate = function(src, w,h){
       }
       
       if( f )
-        ip_set_rgba_at( dst, u,v, 0,0,0,255 );
-      else
         ip_set_rgba_at( dst, u,v, 255,255,255,255 );
+      else
+        ip_set_rgba_at( dst, u,v, 0,0,0,255 );
     }
   }
   
