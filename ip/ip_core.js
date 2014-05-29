@@ -15,7 +15,7 @@ var ip_copy_img = function(src){
   var dst = ip_create_img( src.width, src.height );
   
   for(i=0;i<src.width * src.height * 4;i++){
-    dst[i] = src[i];
+    dst.data[i] = src.data[i];
   }
   return dst;
 }
