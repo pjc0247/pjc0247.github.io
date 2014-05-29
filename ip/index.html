@@ -68,7 +68,7 @@
     morp3_ed = ip_test_morp_dilate( morp2_ed, 3,3 );
     
     var morp2_de = ip_test_morp_dilate( original, 3,3 );
-    morp3_de = ip_test_morp_erode( morp3_de, 3,3 );
+    morp3_de = ip_test_morp_erode( morp2_de, 3,3 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
@@ -78,6 +78,6 @@
     dc.putImageData( morp2_e, 600,300 );
     dc.putImageData( morp2_d, 900,300 );
     dc.putImageData( morp3_ed, 0,600 );
-    dc.putImageData( morp3_ed, 300,600 );
+    dc.putImageData( morp3_de, 300,600 );
   }
 </script>
