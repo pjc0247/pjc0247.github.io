@@ -1,0 +1,88 @@
+<html>
+  <head>
+  </head>
+  
+  <body>
+    please wait<br>
+    <canvas id="canvas" width="1540px" height="900px">
+    </canvas>
+    
+    <br>
+    <h1>
+      1. original image <br>
+      2. ROI를 설정하고 darken, lighten을 수행 <br>
+      3. gaussian blur <br>
+      4. 2번 이미지에 contour_4x를 수행 <br>
+      5. 4번 이미지에 Morphology 2x2 침식 연산<br> 
+      6. 4번 이미지에 Morphology 2x2 팽창 연산<br>
+      7. 원본 이미지에 Morphology 3x3 침식 연산<br>
+      8. 원본 이미지에 Morphology 3x3 팽창 연산<br>
+      9. 원본 이미지에 Morphology 3x3 열기 연산<br>
+      10. 원본 이미지에 Morphology 3x3 닫기 연산<br>
+    </h1>
+  </body>
+</html>
+
+<script src="ip_cs.js"></script>
+<script src="ip_core.js"></script>
+<script src="ip_mask.js"></script>
+<script src="ip_p.js"></script>
+<script src="ip_morp.js"></script>
+<script src="ip_blur.js"></script>
+
+<script>
+  console.log("hello");
+  
+  var img = new Image;
+  img.src = "../recover.jpg";
+  img.onload = function(){
+    var canvas = document.getElementById("canvas");
+    var dc = canvas.getContext("2d");
+    
+    ip_set_dc( dc );
+    
+    dc.drawImage( img, 0,0,300,300 );
+    
+    var pixels = dc.getImageData(0,0,300,300);
+    var original = ip_copy_img( pixels );
+    var pixels2 = ip_copy_img( pixels );
+    
+    ip_set_roi( pixels, 50,50,200,200 )
+    ip_darken( pixels, 100 );
+    
+    ip_set_roi( pixels, 100,100,100,100 );
+    ip_lighten( pixels, 150 );
+    
+    ip_set_channel_mask( pixels2, IP_G, 0,0 );
+    ip_set_channel_mask( pixels2, IP_B, 0,0 );
+    pixels2 = ip_blur( pixels2, 3 );
+    
+    ip_reset_masks( pixels );
+    var cont = ip_contour_4x( pixels, 110 );
+    
+    var morp_e = ip_morp_erode( cont, 2,2 );
+    var morp_d = ip_test_morp_dilate( cont, 2,2 );
+    
+    var morp2_e = ip_test_morp_erode( original, 3,3 );
+    var morp2_d = ip_test_morp_dilate( original, 3,3 );
+    
+    var morp2_ed = ip_test_morp_erode( original, 3,3 );
+    morp3_ed = ip_test_morp_dilate( morp2_ed, 3,3 );
+    
+    var morp2_de = ip_test_morp_dilate( original, 3,3 );
+    morp3_de = ip_test_morp_erode( morp2_de, 3,3 );
+    
+    dc.putImageData( pixels,300,0 );
+    dc.putImageData( pixels2, 600,0 );
+    dc.putImageData( cont, 900,0 );
+    dc.putImageData( morp_e, 0,300 );
+    dc.putImageData( morp_d, 300,300 );
+    dc.putImageData( morp2_e, 600,300 );
+    dc.putImageData( morp2_d, 900,300 );
+    dc.putImageData( morp3_ed, 0,600 );
+    dc.putImageData( morp3_de, 300,600 );
+  }
+  
+  
+  
+</script>
