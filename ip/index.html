@@ -3,7 +3,7 @@
   </head>
   
   <body>
-    <canvas id="canvas" width="1240px" height="330px">
+    <canvas id="canvas" width="1540px" height="330px">
     </canvas>
     
     <br>
@@ -20,6 +20,7 @@
 <script src="ip_core.js"></script>
 <script src="ip_mask.js"></script>
 <script src="ip_p.js"></script>
+<script src="ip_morp.js"></script>
 
 <script>
   console.log("hello");
@@ -49,10 +50,12 @@
     
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
-    console.log(cont);
+    
+    var morp = ip_morp_erode( cont, 3,3 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
     dc.putImageData( cont, 900,0 );
+    dc.putImageData( mort, 1200,0 );
   }
 </script>
