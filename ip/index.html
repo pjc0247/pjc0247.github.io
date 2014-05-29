@@ -22,6 +22,8 @@
     var canvas = document.getElementById("canvas");
     var dc = canvas.getContext("2d");
     
+    ip_set_dc( dc );
+    
     dc.drawImage( img, 0,0,300,300 );
     
     var pixels = dc.getImageData(0,0,300,300);
