@@ -75,6 +75,7 @@
     morp3_de = ip_test_morp_erode( morp2_de, 3,3 );
     
     var blured1 = ip_gauss_blur( original, 5 );
+    ip_set_roi( original, 100,100,100,100 );
     var blured2 = ip_blur( original, 15,15 );
     
     dc.putImageData( pixels,300,0 );
