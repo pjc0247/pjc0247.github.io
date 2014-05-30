@@ -11,7 +11,7 @@
     <h1>
       1. original image <br>
       2. ROI를 설정하고 darken, lighten을 수행 <br>
-      3. gaussian blur <br>
+      3. B,G 채널에 마스크를 씌우고 lighten을 수행 <br>
       4. 2번 이미지에 contour_4x를 수행 <br>
       5. 4번 이미지에 Morphology 2x2 침식 연산<br> 
       6. 4번 이미지에 Morphology 2x2 팽창 연산<br>
@@ -19,6 +19,8 @@
       8. 원본 이미지에 Morphology 3x3 팽창 연산<br>
       9. 원본 이미지에 Morphology 3x3 열기 연산<br>
       10. 원본 이미지에 Morphology 3x3 닫기 연산<br>
+      11. gaussian blur<br>
+      12. blur<br>
     </h1>
   </body>
 </html>
@@ -53,9 +55,9 @@
     ip_set_roi( pixels, 100,100,100,100 );
     ip_lighten( pixels, 150 );
     
-    ip_set_channel_mask( pixels2, IP_G, 0,0 );
-    ip_set_channel_mask( pixels2, IP_B, 0,0 );
-    pixels2 = ip_blur( pixels2, 3 );
+    ip_set_channel_mask( pixels2, IP_G, -1,-1 );
+    ip_set_channel_mask( pixels2, IP_B, -1,-1 );
+    ip_lighten( pixels2, 50 );
     
     ip_reset_masks( pixels );
     var cont = ip_contour_4x( pixels, 110 );
@@ -64,13 +66,16 @@
     var morp_d = ip_test_morp_dilate( cont, 2,2 );
     
     var morp2_e = ip_test_morp_erode( original, 3,3 );
-    var morp2_d = ip_test_morp_avg( original, 25,25 );
+    var morp2_d = ip_test_morp_dilate( original, 25,25 );
     
     var morp2_ed = ip_test_morp_erode( original, 3,3 );
     morp3_ed = ip_test_morp_dilate( morp2_ed, 3,3 );
     
     var morp2_de = ip_test_morp_dilate( original, 3,3 );
     morp3_de = ip_test_morp_erode( morp2_de, 3,3 );
+    
+    var blured1 = ip_gauss_blur( original, 5 );
+    var blured2 = ip_blur( original, 25,25 );
     
     dc.putImageData( pixels,300,0 );
     dc.putImageData( pixels2, 600,0 );
@@ -81,6 +86,8 @@
     dc.putImageData( morp2_d, 900,300 );
     dc.putImageData( morp3_ed, 0,600 );
     dc.putImageData( morp3_de, 300,600 );
+    dc.putImageData( blured1, 600,600 );
+    dc.putImageData( blured2, 900,600 );
   }
   
   
