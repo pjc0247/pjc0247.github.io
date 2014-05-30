@@ -134,3 +134,36 @@ var ip_test_morp_dilate = function(src, w,h){
   
   return dst;
 }
+var ip_test_morp_avg = function(src, w,h){
+  var roi = ip_get_roi( src );
+  var dst = ip_create_img( roi[2],roi[3] );
+
+  for(i=roi[0],u=0;i<roi[2];i++,u++){
+    for(j=roi[1],v=0;j<roi[3];j++,v++){
+      
+      var to_x = Math.min( roi[2], i+w );
+      var to_y = Math.min( roi[3], j+h );
+      var f = false;
+      
+      var r = 0,g = 0,b = 0;
+      var div = 0;
+      
+      for(k=i;k<to_x;k++){
+        for(l=j;l<to_y;l++){
+          var p = ip_get_rgb_at( src, k,l );
+          
+          r += p[0];
+          g += p[1];
+          b += p[2];
+          div += 1;
+        }
+      }
+      
+      ip_set_rgba_at(
+        dst, u,v,
+        r/div,g/div,b/div,255 );
+    }
+  }
+  
+  return dst;
+}
