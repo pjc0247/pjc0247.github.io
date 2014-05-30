@@ -66,7 +66,7 @@
     var morp_d = ip_test_morp_dilate( cont, 2,2 );
     
     var morp2_e = ip_test_morp_erode( original, 3,3 );
-    var morp2_d = ip_test_morp_dilate( original, 25,25 );
+    var morp2_d = ip_test_morp_dilate( original, 3,3 );
     
     var morp2_ed = ip_test_morp_erode( original, 3,3 );
     morp3_ed = ip_test_morp_dilate( morp2_ed, 3,3 );
@@ -75,7 +75,6 @@
     morp3_de = ip_test_morp_erode( morp2_de, 3,3 );
     
     var blured1 = ip_gauss_blur( original, 5 );
-    ip_set_roi( original, 100,100,100,100 );
     var blured2 = ip_blur( original, 15,15 );
     
     dc.putImageData( pixels,300,0 );
