@@ -57,8 +57,7 @@ setInterval( function(){
   
   dc.fillStyle = "rgb(87,127,180)";
   dc.beginPath();
-    dc.arc(-200,-200,400,0,2*Math.PI);
+    dc.arc(-200,-200,700,0,2*Math.PI);
   dc.closePath();
-  
   dc.fill();
 }, 33 );
