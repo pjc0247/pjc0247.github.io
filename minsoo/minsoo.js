@@ -16,7 +16,7 @@ var on_click = function(){
       x : 640, y : 100,
       sx : Math.random() * 10 - 5, sy : Math.random() * 10,
       alpha : 255,
-      size : parseInt(Math.random() * 20 + 10),
+      size : parseInt(Math.random() * 20 + 20),
       color : gen_color()
     }
     ms.push( obj );
@@ -25,7 +25,7 @@ var on_click = function(){
 
 setInterval( function(){
   dc.clearRect(0,0,1280,960);
-  dc.globalCompositeOperation = "lighter";
+  //dc.globalCompositeOperation = "lighter";
   
   for( var i in ms ){
     var obj = ms[i];
