@@ -8,8 +8,7 @@ var gen_color = function(){
   return "rgb(" +
     parseInt(Math.random()*255) + "," +
     parseInt(Math.random()*255) + "," +
-    parseInt(Math.random()*255) + "," +
-    ")";
+    parseInt(Math.random()*255) + ")";
 }
 var on_click = function(){
   for(i=0;i<count.value;i++){
