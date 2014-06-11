@@ -19,7 +19,10 @@ setInterval( function(){
   for( var i in ms ){
     var obj = ms[i];
     
-    dc.drawText( "민수천재야", obj.x,obj.y )
+    dc.fillText( "민수천재야", obj.x,obj.y );
+    
+    obj.x += obj.sx;
+    obj.y += obj.sy;
   }
   
   dc.fill();
