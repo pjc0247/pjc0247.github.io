@@ -45,6 +45,7 @@ setInterval( function(){
   }
   dc.fill();
   
+  /*
   dc.globalAlpha = 1;
   dc.globalCompositeOperation = "copy";
   
@@ -61,4 +62,5 @@ setInterval( function(){
     dc.arc(-200,-200,700,0,2*Math.PI);
   dc.closePath();
   dc.fill();
+  */
 }, 33 );
