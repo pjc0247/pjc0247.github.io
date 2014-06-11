@@ -19,9 +19,11 @@ setInterval( function(){
   dc.clearRect(0,0,1280,960);
   dc.font = "50px Arial";
   
-  var grd = ctx.createRadialGradient(75,50,5,90,60,100);
+  var grd = dc.createRadialGradient(75,50,5,90,60,100);
   grd.addColorStop(0,"red");
   grd.addColorStop(1,"white");
+
+  dc.fillStyle = grd;
 
   for( var i in ms ){
     var obj = ms[i];
