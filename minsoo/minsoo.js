@@ -4,13 +4,21 @@ var dc = canvas.getContext("2d");
 
 var ms = new Array();
 
+var gen_color = function(){
+  return "rgb(" +
+    parseInt(Math.random()*255) + "," +
+    parseInt(Math.random()*255) + "," +
+    parseInt(Math.random()*255) + "," +
+    ")";
+}
 var on_click = function(){
   for(i=0;i<count.value;i++){
     obj = {
       x : 640, y : 100,
       sx : Math.random() * 10 - 5, sy : Math.random() * 10,
       alpha : 255,
-      size : parseInt(Math.random() * 20 + 10)
+      size : parseInt(Math.random() * 20 + 10),
+      color : gen_color()
     }
     ms.push( obj );
   }
@@ -18,13 +26,8 @@ var on_click = function(){
 
 setInterval( function(){
   dc.clearRect(0,0,1280,960);
+  dc.globalCompositeOperation = "lighter";
   
-  var grd = dc.createLinearGradient(0,0,200,0);
-  grd.addColorStop(0,"red");
-  grd.addColorStop(1,"white");
-
-  dc.fillStyle = grd;
-
   for( var i in ms ){
     var obj = ms[i];
     
