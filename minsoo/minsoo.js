@@ -33,6 +33,7 @@ setInterval( function(){
     
     dc.font = obj.size + "px Arial";
     dc.globalAlpha = obj.alpha / 255;
+    dc.fillColor = obj.color;
     dc.fillText( "민수천재야", obj.x,obj.y );
     
     obj.x += obj.sx;
