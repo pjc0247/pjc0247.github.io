@@ -6,15 +6,15 @@ var ms = new Array();
 
 var on_click = function(){
   obj = {
-    x : 320, y : 240,
-    sx : Math.random() * 10, sy : Math.random() * 10,
+    x : 640, y : 480,
+    sx : Math.random() * 10 - 5, sy : Math.random() * 10,
     alpha : 255
   }
   ms.push( obj );
 }
 
 setInterval( function(){
-  dc.clearRect(0,0,640,480);
+  dc.clearRect(0,0,1280,960);
   
   for( var i in ms ){
     var obj = ms[i];
