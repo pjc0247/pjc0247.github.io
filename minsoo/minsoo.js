@@ -25,7 +25,7 @@ var on_click = function(){
 
 setInterval( function(){
   dc.clearRect(0,0,1280,960);
-  dc.globalCompositeOperation = "copy darker";
+  dc.globalCompositeOperation = "darker";
   
   for( var i in ms ){
     var obj = ms[i];
@@ -45,7 +45,7 @@ setInterval( function(){
   }
 
   dc.globalAlpha = 1;
-  dc.globalCompositeOperation = "copy darker";
+  dc.globalCompositeOperation = "lighter";
   
   dc.fillStyle = "rgb(128,200,64)";
   dc.beginPath();
@@ -53,7 +53,7 @@ setInterval( function(){
   dc.closePath();
   dc.fill();
   
-  dc.globalCompositeOperation = "source-in";
+  dc.globalCompositeOperation = "lighter";
   
   dc.fillStyle = "rgb(87,127,180)";
   dc.beginPath();
