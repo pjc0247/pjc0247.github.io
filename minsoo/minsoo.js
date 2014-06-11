@@ -25,7 +25,7 @@ var on_click = function(){
 
 setInterval( function(){
   dc.clearRect(0,0,1280,960);
-  dc.globalCompositeOperation = "copy";
+  dc.globalCompositeOperation = "darker";
   
   for( var i in ms ){
     var obj = ms[i];
@@ -45,9 +45,8 @@ setInterval( function(){
   }
   dc.fill();
   
-  /*
   dc.globalAlpha = 1;
-  dc.globalCompositeOperation = "copy";
+  //dc.globalCompositeOperation = "copy";
   
   dc.fillStyle = "rgb(128,200,64)";
   dc.beginPath();
@@ -55,12 +54,11 @@ setInterval( function(){
   dc.closePath();
   dc.fill();
   
-  dc.globalCompositeOperation = "lighter";
+  //dc.globalCompositeOperation = "lighter";
   
   dc.fillStyle = "rgb(87,127,180)";
   dc.beginPath();
     dc.arc(-200,-200,700,0,2*Math.PI);
   dc.closePath();
   dc.fill();
-  */
 }, 33 );
