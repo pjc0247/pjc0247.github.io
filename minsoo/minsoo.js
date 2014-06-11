@@ -19,10 +19,16 @@ setInterval( function(){
   for( var i in ms ){
     var obj = ms[i];
     
+    dc.globalAlpha = obj.alpha / 255;
     dc.fillText( "민수천재야", obj.x,obj.y );
     
     obj.x += obj.sx;
     obj.y += obj.sy;
+    obj.alpha -= 1;
+    
+    if( obj.alpha == 0 ){
+      ms.splice( i, 1 );
+    }
   }
   
   dc.fill();
