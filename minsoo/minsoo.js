@@ -45,11 +45,11 @@ setInterval( function(){
   }
   
   dc.globalAlpha = 1;
-  dc.globalCompositeOperation = "lighter";
+  dc.globalCompositeOperation = "darker";
   
   dc.fillStyle = "rgb(128,255,128)";
   dc.beginPath();
-    dc.arc(1000,600,600,0,2*Math.PI);
+    dc.arc(1000,700,800,0,2*Math.PI);
   dc.closePath();
   
   dc.fill();
