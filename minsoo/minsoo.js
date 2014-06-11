@@ -53,7 +53,7 @@ setInterval( function(){
   dc.closePath();
   dc.fill();
   
-  dc.globalCompositeOperation = "lighter";
+  dc.globalCompositeOperation = "source-in";
   
   dc.fillStyle = "rgb(87,127,180)";
   dc.beginPath();
