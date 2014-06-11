@@ -27,17 +27,12 @@ setInterval( function(){
   dc.clearRect(0,0,1280,960);
   dc.globalCompositeOperation = "lighter";
   
-  var grd = dc.createRadialGradient(75,50,5,90,60,100);
-  grd.addColorStop(0,"red");
-  grd.addColorStop(1,"white");
-  
-
   for( var i in ms ){
     var obj = ms[i];
     
     dc.font = obj.size + "px Arial";
     dc.globalAlpha = obj.alpha / 255;
-    dc.fillStyle = grd;
+    dc.fillStyle = obj.color;
     dc.fillText( "민수천재야", obj.x,obj.y );
     
     obj.x += obj.sx;
