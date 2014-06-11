@@ -46,7 +46,7 @@ setInterval( function(){
   dc.fill();
   
   dc.globalAlpha = 1;
-  //dc.globalCompositeOperation = "copy";
+  dc.globalCompositeOperation = "lighter";
   
   dc.fillStyle = "rgb(128,200,64)";
   dc.beginPath();
@@ -54,7 +54,7 @@ setInterval( function(){
   dc.closePath();
   dc.fill();
   
-  //dc.globalCompositeOperation = "lighter";
+  dc.globalCompositeOperation = "lighter";
   
   dc.fillStyle = "rgb(87,127,180)";
   dc.beginPath();
