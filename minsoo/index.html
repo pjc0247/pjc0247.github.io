@@ -5,6 +5,14 @@
         width : 100%;
         height : 100%;
       }
+      
+      panel {
+        position : fixied;
+        left : 50%;
+        top : 50%;
+        border : 1px solid black;
+        border-radius : 5px;
+      }
     </style>
   </head>
   
@@ -12,8 +20,10 @@
     <canvas id="canvas" width="640px" height="480px">
     </canvas>
     
-    <input id="count" type="number"></input>
-    <button id="push" onclick="on_click();">발싸</button>
+    <div id="panel">
+      <input id="count" type="number"></input>
+      <button id="push" onclick="on_click();">발싸</button>
+    </div>
   </body>
 </html>
 
