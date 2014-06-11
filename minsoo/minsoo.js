@@ -25,7 +25,7 @@ var on_click = function(){
 
 setInterval( function(){
   dc.clearRect(0,0,1280,960);
-  dc.globalCompositeOperation = "darker";
+  dc.globalCompositeOperation = "copy";
   
   for( var i in ms ){
     var obj = ms[i];
