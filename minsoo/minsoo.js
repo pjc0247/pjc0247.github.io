@@ -43,10 +43,9 @@ setInterval( function(){
       ms.splice( i, 1 );
     }
   }
-  dc.fill();
-  
+
   dc.globalAlpha = 1;
-  dc.globalCompositeOperation = "lighter";
+  dc.globalCompositeOperation = "darker";
   
   dc.fillStyle = "rgb(128,200,64)";
   dc.beginPath();
