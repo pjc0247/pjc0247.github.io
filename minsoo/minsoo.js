@@ -44,7 +44,8 @@ setInterval( function(){
     }
   }
   
-  dc.globalCompositeOperation = "xor";
+  dc.globalAlpha = 1;
+  dc.globalCompositeOperation = "lighter";
   
   dc.fillStyle = "rgb(128,255,128)";
   dc.beginPath();
