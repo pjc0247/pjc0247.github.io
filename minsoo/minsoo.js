@@ -13,7 +13,7 @@ var gen_color = function(){
 var on_click = function(){
   for(i=0;i<count.value;i++){
     obj = {
-      x : 640, y : 100,
+      x : 240, y : 480,
       sx : Math.random() * 10 - 5, sy : Math.random() * 10,
       alpha : 255,
       size : parseInt(Math.random() * 20 + 20),
