@@ -45,7 +45,7 @@ setInterval( function(){
   }
   
   dc.globalAlpha = 1;
-  dc.globalCompositeOperation = "darker";
+  dc.globalCompositeOperation = "destination-atop";
   
   dc.fillStyle = "rgb(128,200,64)";
   dc.beginPath();
