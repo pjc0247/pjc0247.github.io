@@ -49,7 +49,14 @@ setInterval( function(){
   
   dc.fillStyle = "rgb(128,255,128)";
   dc.beginPath();
-    dc.arc(1000,700,600,0,2*Math.PI);
+    dc.arc(1000,900,600,0,2*Math.PI);
+  dc.closePath();
+  
+  dc.globalCompositeOperation = "lighter";
+  
+  dc.fillStyle = "rgb(87,127,180)";
+  dc.beginPath();
+    dc.arc(-200,-200,400,0,2*Math.PI);
   dc.closePath();
   
   dc.fill();
