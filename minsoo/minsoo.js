@@ -9,7 +9,8 @@ var on_click = function(){
     obj = {
       x : 640, y : 100,
       sx : Math.random() * 10 - 5, sy : Math.random() * 10,
-      alpha : 255
+      alpha : 255,
+      size : parseInt(Math.random() * 20 + 10)
     }
     ms.push( obj );
   }
@@ -17,17 +18,17 @@ var on_click = function(){
 
 setInterval( function(){
   dc.clearRect(0,0,1280,960);
-  dc.font = "50px Arial";
   
-  var grd = dc.createRadialGradient(75,50,5,90,60,100);
+  var grd = dc.createLinearGradient(0,0,200,0);
   grd.addColorStop(0,"red");
   grd.addColorStop(1,"white");
 
-//  dc.fillStyle = grd;
+  dc.fillStyle = grd;
 
   for( var i in ms ){
     var obj = ms[i];
     
+    dc.font = obj.size + "px Arial";
     dc.globalAlpha = obj.alpha / 255;
     dc.fillText( "민수천재야", obj.x,obj.y );
     
