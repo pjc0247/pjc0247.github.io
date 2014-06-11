@@ -47,7 +47,7 @@ setInterval( function(){
   dc.globalAlpha = 1;
   dc.globalCompositeOperation = "darker";
   
-  dc.fillStyle = "rgb(128,255,128)";
+  dc.fillStyle = "rgb(128,200,64)";
   dc.beginPath();
     dc.arc(1000,900,600,0,2*Math.PI);
   dc.closePath();
