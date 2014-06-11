@@ -23,7 +23,7 @@ setInterval( function(){
   grd.addColorStop(0,"red");
   grd.addColorStop(1,"white");
 
-  dc.fillStyle = grd;
+//  dc.fillStyle = grd;
 
   for( var i in ms ){
     var obj = ms[i];
