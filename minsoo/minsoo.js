@@ -43,6 +43,7 @@ setInterval( function(){
       ms.splice( i, 1 );
     }
   }
+  dc.fill();
   
   dc.globalAlpha = 1;
   dc.globalCompositeOperation = "copy";
