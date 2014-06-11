@@ -44,15 +44,11 @@ setInterval( function(){
     }
   }
   
-  dc.globalCompositeOperation = "copy";
+  dc.globalCompositeOperation = "xor";
   
-  var grd = dc.createRadialGradient(75,50,1,90,60,80);
-  grd.addColorStop(0,"rgb(128,128,200)");
-  grd.addColorStop(1,"white");
-
   dc.fillStyle = grd;
   dc.beginPath();
-    dc.arc(80,65,600,0,2*Math.PI);
+    dc.arc(600,400,600,0,2*Math.PI);
   dc.closePath();
   
   dc.fill();
