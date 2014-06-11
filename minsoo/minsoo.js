@@ -6,7 +6,7 @@ var ms = new Array();
 
 var on_click = function(){
   obj = {
-    x : 640, y : 480,
+    x : 640, y : 100,
     sx : Math.random() * 10 - 5, sy : Math.random() * 10,
     alpha : 255
   }
@@ -25,7 +25,7 @@ setInterval( function(){
     
     obj.x += obj.sx;
     obj.y += obj.sy;
-    obj.alpha -= 1;
+    obj.alpha -= 2.5;
     
     if( obj.alpha == 0 ){
       ms.splice( i, 1 );
