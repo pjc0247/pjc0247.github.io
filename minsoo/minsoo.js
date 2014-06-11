@@ -51,6 +51,7 @@ setInterval( function(){
   dc.beginPath();
     dc.arc(1000,900,600,0,2*Math.PI);
   dc.closePath();
+  dc.fill();
   
   dc.globalCompositeOperation = "lighter";
   
