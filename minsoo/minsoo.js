@@ -52,7 +52,7 @@ setInterval( function(){
 
   dc.fillStyle = grd;
   dc.beginPath();
-    dc.arc(800,650,600,0,2*Math.PI);
+    dc.arc(80,65,600,0,2*Math.PI);
   dc.closePath();
   
   dc.fill();
