@@ -46,7 +46,7 @@ setInterval( function(){
   
   dc.globalCompositeOperation = "xor";
   
-  dc.fillStyle = grd;
+  dc.fillStyle = "rgb(128,255,128)";
   dc.beginPath();
     dc.arc(600,400,600,0,2*Math.PI);
   dc.closePath();
