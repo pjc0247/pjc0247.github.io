@@ -25,7 +25,7 @@ var on_click = function(){
 
 setInterval( function(){
   dc.clearRect(0,0,1280,960);
-  //dc.globalCompositeOperation = "lighter";
+  dc.globalCompositeOperation = "darker";
   
   for( var i in ms ){
     var obj = ms[i];
@@ -43,6 +43,17 @@ setInterval( function(){
       ms.splice( i, 1 );
     }
   }
+  
+  dc.globalCompositeOperation = "copy";
+  
+  var grd = dc.createRadialGradient(75,50,5,90,60,100);
+  grd.addColorStop(0,"red");
+  grd.addColorStop(1,"white");
+
+  dc.fillStyle = grd;
+  dc.beginPath();
+    dc.arc(95,50,400,0,2*Math.PI);
+  dc.closePath();
   
   dc.fill();
 }, 33 );
