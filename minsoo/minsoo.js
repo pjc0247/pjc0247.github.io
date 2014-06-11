@@ -5,12 +5,14 @@ var dc = canvas.getContext("2d");
 var ms = new Array();
 
 var on_click = function(){
-  obj = {
-    x : 640, y : 100,
-    sx : Math.random() * 10 - 5, sy : Math.random() * 10,
-    alpha : 255
+  for(i=0;i<count.value;i++){
+    obj = {
+      x : 640, y : 100,
+      sx : Math.random() * 10 - 5, sy : Math.random() * 10,
+      alpha : 255
+    }
+    ms.push( obj );
   }
-  ms.push( obj );
 }
 
 setInterval( function(){
