@@ -2,13 +2,14 @@
 
   <head>
     <style>
-      #panel {
+      .panel {
         border : 1px solid black;
         border-radius : 3px;
         
-        width : 300px;
+        width : 200px;
         
-        padding : 3px;
+        padding : 6px;
+        margin : 10px;
       }
     </style>
   </head>
@@ -16,11 +17,26 @@
   <body>
     <h1>치킨환율계산기</h1>
     
-    <div id="panel">
-      <input type="number" id="chicken"></input>치킨<br><br>
-      <input type="number" id="won"></input>원<br>
-      <input type="number" id="dollar"></input>달러<br>
-      <input type="number" id="yen"></input>엔<br>
+    <div class="panel">
+      <input type="number" id="1_chicken"></input>치킨 -><br><br>
+      <input type="number" id="1_won"></input>원<br>
+      <input type="number" id="1_dollar"></input>달러<br>
+      <input type="number" id="1_yen"></input>엔<br>
+    </div>
+    
+    <div class="panel">
+      <input type="number" id="2_from"></input>원 -><br>
+      <input type="number" id="2_to"></input>치킨<br>
+    </div>
+    
+    <div class="panel">
+      <input type="number" id="3_from"></input>달러 -><br>
+      <input type="number" id="3_to"></input>치킨<br>
+    </div>
+    
+    <div class="panel">
+      <input type="number" id="4_from"></input>엔 -><br>
+      <input type="number" id="4_to"></input>치킨<br>
     </div>
   </body>
   
