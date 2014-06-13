@@ -25,6 +25,7 @@
       <input type="number" id="1_won"></input>원<br>
       <input type="number" id="1_dollar"></input>달러<br>
       <input type="number" id="1_yen"></input>엔<br>
+      <input type="number" id="1_ipad"></input>아이패드<br>
     </div>
     
     <div class="panel">
@@ -41,6 +42,11 @@
       <input type="number" id="4_from" class="pivot" value="1"></input>엔 -><br>
       <input type="number" id="4_to"></input>치킨<br>
     </div>
+    
+    <div class="panel">
+      <input type="number" id="5_from" class="pivot" value="1"></input>아이패드 -><br>
+      <input type="number" id="5_to"></input>치킨<br>
+    </div>
   </body>
   
 </html>
@@ -50,6 +56,7 @@
   var WON = 16000;
   var YEN = 1600;
   var DOLLAR = 15.70;
+  var IPAD = 0.258064;
   
   var update = function(){
     /* from chicken */
@@ -58,6 +65,7 @@
     $("#1_won").val(chicken * WON);
     $("#1_yen").val(chicken * YEN);
     $("#1_dollar").val(chicken * DOLLAR);
+    $("#1_ipad").val(chicken * IPAD);
     
     /* to won */
     var won = $("#2_from").val();
@@ -73,6 +81,11 @@
     var yen = $("#4_from").val();
     
     $("#4_to").val(yen / YEN);
+    
+    /* to ipad */
+    var ipad = $("#5_from").val();
+    
+    $("#5_to").val(ipad / IPAD);
   }
   $(".pivot").change( function(){
     update();
