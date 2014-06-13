@@ -18,24 +18,24 @@
     <h1>치킨환율계산기</h1>
     
     <div class="panel">
-      <input type="number" id="1_chicken"></input>치킨 -><br><br>
+      <input type="number" id="1_chicken" class="pivot"></input>치킨 -><br><br>
       <input type="number" id="1_won"></input>원<br>
       <input type="number" id="1_dollar"></input>달러<br>
       <input type="number" id="1_yen"></input>엔<br>
     </div>
     
     <div class="panel">
-      <input type="number" id="2_from"></input>원 -><br>
+      <input type="number" id="2_from" class="pivot"></input>원 -><br>
       <input type="number" id="2_to"></input>치킨<br>
     </div>
     
     <div class="panel">
-      <input type="number" id="3_from"></input>달러 -><br>
+      <input type="number" id="3_from" class="pivot"></input>달러 -><br>
       <input type="number" id="3_to"></input>치킨<br>
     </div>
     
     <div class="panel">
-      <input type="number" id="4_from"></input>엔 -><br>
+      <input type="number" id="4_from" class="pivot"></input>엔 -><br>
       <input type="number" id="4_to"></input>치킨<br>
     </div>
   </body>
@@ -44,5 +44,34 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+  var WON = 16000;
+  var YEN = 1600;
+  var DOLLAR = 15.70;
   
+  var update = function(){
+    /* from chicken */
+    var chicken = $("#1_chicken").val();
+    
+    $("#1_won").val(chicken * WON);
+    $("#2_won").val(chicken * YEN);
+    $("#3_won").val(chicken * DOLLAR);
+    
+    /* to won */
+    var won = $("#2_from").val();
+    
+    $("#2_to").val(won / WON);
+    
+    /* to dollar */
+    var dollar = $("#3_from").val();
+    
+    $("#3_to").val(dollar / DOLLAR);
+    
+    /* to yen */
+    var yen = $("#4_from").val();
+    
+    $("#4_to").val(yen / YEN);
+  }
+  $(".pivot").change( function(){
+    update();
+  });
 </script>
