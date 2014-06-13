@@ -18,24 +18,24 @@
     <h1>치킨환율계산기</h1>
     
     <div class="panel">
-      <input type="number" id="1_chicken" class="pivot"></input>치킨 -><br><br>
+      <input type="number" id="1_chicken" class="pivot" value="1"></input>치킨 -><br><br>
       <input type="number" id="1_won"></input>원<br>
       <input type="number" id="1_dollar"></input>달러<br>
       <input type="number" id="1_yen"></input>엔<br>
     </div>
     
     <div class="panel">
-      <input type="number" id="2_from" class="pivot"></input>원 -><br>
+      <input type="number" id="2_from" class="pivot" value="1"></input>원 -><br>
       <input type="number" id="2_to"></input>치킨<br>
     </div>
     
     <div class="panel">
-      <input type="number" id="3_from" class="pivot"></input>달러 -><br>
+      <input type="number" id="3_from" class="pivot" value="1"></input>달러 -><br>
       <input type="number" id="3_to"></input>치킨<br>
     </div>
     
     <div class="panel">
-      <input type="number" id="4_from" class="pivot"></input>엔 -><br>
+      <input type="number" id="4_from" class="pivot" value="1"></input>엔 -><br>
       <input type="number" id="4_to"></input>치킨<br>
     </div>
   </body>
@@ -71,10 +71,9 @@
     
     $("#4_to").val(yen / YEN);
   }
-  $(".pivot").ready( function(){
-    $(".pivot").value("1");
-  });
   $(".pivot").change( function(){
     update();
   });
+  
+  update();
 </script>
