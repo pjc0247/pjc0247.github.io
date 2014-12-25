@@ -1,6 +1,6 @@
 <script>
 var req = new XMLHttpRequest();
-req.open('POST', 'http://ec2-54-183-216-199.us-west-1.compute.amazonaws.com:8081/api/v1/tokenizeSpeechParts/true/true' true);
+req.open('POST', 'http://ec2-54-183-216-199.us-west-1.compute.amazonaws.com:8081/api/v1/tokenizeSpeechParts/true/true', true);
 req.onreadystatechange = function (aEvt) {
   if (req.readyState == 4) {
      if(req.status == 200)
