@@ -1,0 +1,20 @@
+<textarea id="input">
+</textarea>
+<div id="result">
+</div>
+
+<script>
+var input = document.getElementById("input");
+var result = document.getElementById("result");
+
+input.onchange = function(){
+  var t = input.value.split(" ");
+  var r = "";
+  
+  for(var i=0;i<t.length;i++){
+    r += "근데 " + t[i] + "가머임\n";  
+  }
+  
+  result.innerText = r;
+}
+</script>
