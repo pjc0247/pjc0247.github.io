@@ -1,16 +1,17 @@
 Me
 ====
 
-* Game Client Programming
+* __Game Client Programming__
   * cocos2d-x
   * unity (beginner)
   * SDL
-* Game Server Programming
+* __Game Server Programming__
   * C++
   * C#
-* Web Frontend Programming
+* __Web Frontend Programming__
   * AngularJS
-* Web Server Programming
+* __Web Server Programming__
   * Sinatra (beginner)
-* Mobile Programming
+  * PHP
+* __Mobile Programming__
   * Objective-C / Swift (beginner)
