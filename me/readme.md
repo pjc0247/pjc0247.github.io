@@ -12,6 +12,6 @@ Me
   * AngularJS
 * __Web Server Programming__
   * Sinatra (beginner)
-  * PHP
+  * PHP (beginner)
 * __Mobile Programming__
   * Objective-C / Swift (beginner)
