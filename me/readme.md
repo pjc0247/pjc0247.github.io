@@ -12,6 +12,8 @@ Skills
   * C#
 * __Web Frontend Programming__
   * AngularJS
+  * less
+  * Jekyll & Liquid (beginner)
 * __Web Server Programming__
   * Sinatra (beginner)
   * PHP (beginner)
