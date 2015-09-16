@@ -19,6 +19,7 @@ Skills
   * PHP (beginner)
 * __Mobile Programming__
   * Objective-C / Swift (beginner)
+  * Single-Page based WebApp
 
 Languages
 ----
