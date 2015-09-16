@@ -22,6 +22,8 @@ Skills
   * Single-Page based WebApp
 * __Linguistic__
   * Understanding of lex & sexp-tree
+* __Buliding and Testing Automation__
+  * Using Jenkins & RubyScript
 
 Programming Languages
 ----
