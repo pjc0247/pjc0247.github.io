@@ -20,7 +20,8 @@ Skills
 * __Mobile Programming__
   * Objective-C / Swift (beginner)
   * Single-Page based WebApp
-* .Net
+   * via AngularJS (same above, Web Frontend Programming)
+* __.Net__
   * CIL (MSIL)
   * Reflection.Emit
 * __Linguistic__
