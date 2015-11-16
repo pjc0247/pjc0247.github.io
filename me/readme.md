@@ -20,8 +20,12 @@ Skills
 * __Mobile Programming__
   * Objective-C / Swift (beginner)
   * Single-Page based WebApp
+* .Net
+  * CIL (MSIL)
+  * Reflection.Emit
 * __Linguistic__
   * Understanding of lex & sexp-tree
+  * Compile AST-tree into CIL 
 * __Buliding and Testing Automation__
   * Using Jenkins & RubyScript
 
