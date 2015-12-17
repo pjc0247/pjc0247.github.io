@@ -51,16 +51,55 @@ returns right path where `Unity3d` is installed.
 ### [get_indent](https://github.com/pjc0247/get_indent)
 
 ### [external_api](https://github.com/pjc0247/ExternalAPI)
+makes easier 'Win32API' class.
+```rb
+require 'external_api'
+
+user32 = ExternalAPI.new("user32")
+
+user32.load("MessageBoxA", 'PPPI', 'I')
+user32.load("SetCursorPos", 'II', 'I')
+
+user32.MessageBoxA(0, "hello", "caption", 0)
+user32.SetCursorPos(100,100)
+```
 
 ### [merge_plist](https://github.com/pjc0247/merge_plist)
 
 ### [roap](https://github.com/pjc0247/roap)
+__roap__ is a gem which allows the AOP(Aspect Oriented Programming) in Ruby via method comments.
+```rb
+#sha1-digested password
+def request_login id, password
+  puts password # 33a5c3270038edc370f609b9917575b9342e3286 (value that has been SHA1 encrypted by 'sha1-digested' aspect.)
+end
+
+request_login "pjc0247", "my_secret_password"
+```
 
 ### [roap_rpc](https://github.com/pjc0247/roap_rpc)
 
 ### [roap_vd](https://github.com/pjc0247/roap_vd)
 
 ### [roap_thread_safe](https://github.com/pjc0247/roap_thread_safe)
+```rb
+class Counter
+  def initialize
+    @cnt = 0
+  end
+
+  #thread-safe
+  def step
+    @cnt += 1
+  end
+
+  #thread-safe
+  def count
+    @cnt
+  end
+end
+```
+(Since there is a GIL(Global Interpreter Lock), the example above is already thread-safe without `thread-safe` aspect in MRI.)
 
 ### [roap_test_helper](https://github.com/pjc0247/roap_test_helper)
 
