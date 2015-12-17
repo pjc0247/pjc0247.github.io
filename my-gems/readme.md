@@ -46,7 +46,7 @@ class Counter
   end
 end
 ```
-(Since there is a GIL(Global Interpreter Lock), the example above is already thread-safe without `thread-safe` aspect in MRI.)
+(Since there is a GIL(Global Interpreter Lock), the above example is already thread-safe without `thread-safe` aspect in MRI.)
 
 ### [roap_test_helper](https://github.com/pjc0247/roap_test_helper)
 ```rb
