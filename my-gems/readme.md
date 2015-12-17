@@ -2,7 +2,7 @@ my-gems
 ====
 
 ### [roap](https://github.com/pjc0247/roap)
-__roap__ is a gem which allows the AOP(Aspect Oriented Programming) in Ruby via method's comments.
+__roap__ is a gem that allows the AOP(Aspect Oriented Programming) in Ruby via method's comments.
 ```rb
 #sha1-digested password
 def request_login id, password
