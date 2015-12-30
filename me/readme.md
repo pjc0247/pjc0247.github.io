@@ -15,6 +15,7 @@ Skills
   * less
   * Jekyll & Liquid (beginner)
 * __Web Server Programming__
+  * Nancy (beginner)
   * Sinatra (beginner)
   * PHP (beginner)
 * __Mobile Programming__
@@ -22,6 +23,7 @@ Skills
   * Single-Page based WebApp
    * via AngularJS (same above, Web Frontend Programming)
 * __.Net__
+  * PostSharp
   * CIL (MSIL)
   * Reflection.Emit
 * __Linguistic__
