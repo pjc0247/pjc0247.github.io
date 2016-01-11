@@ -30,7 +30,9 @@ Skills
   * Understanding of lex & sexp-tree
   * Compile AST-tree into CIL 
 * __Buliding and Testing Automation__
-  * Using Jenkins & RubyScript
+  * Jenkins & RubyScript(As a build script)
+  * Travis & Heroku
+  * NUnit3
 
 Programming Languages
 ----
