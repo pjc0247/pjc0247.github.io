@@ -48,6 +48,8 @@ Programming Languages
 Foreign Languages
 ----
 * __English__
+  * [MDN : Writing WebSocket client applications](https://developer.mozilla.org/ko/docs/WebSockets/Writing_WebSocket_client_applications)
+    * [DIFF](https://developer.mozilla.org/ko/docs/WebSockets/Writing_WebSocket_client_applications$compare?locale=ko&to=988701&from=794411)
   * [C# 6 New Language Features Korean Translation](https://github.com/pjc0247/KR_New_Language_Features_in_CSharp_6)
   * [cocos2d-x official documentation korean translate contributions](https://github.com/pjc0247/cocos-docs)
   * [Resumable functions in C++ Korean translation](http://pjc0247.blog.me/220402031455)
