@@ -26,6 +26,8 @@ Skills
   * PostSharp
   * CIL (MSIL)
   * Reflection.Emit
+* __Database__
+  * Redis
 * __Linguistic__
   * Understanding of lex & sexp-tree
   * Compile AST-tree into CIL 
