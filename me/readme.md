@@ -62,5 +62,7 @@ Foreign Languages
   * [C# 6 New Language Features Korean Translation](https://github.com/pjc0247/KR_New_Language_Features_in_CSharp_6)
   * [cocos2d-x official documentation korean translate contributions](https://github.com/pjc0247/cocos-docs)
   * [Resumable functions in C++ Korean translation](http://pjc0247.blog.me/220402031455)
+  * [HTTP 2.0]
+    * [DATA FRAME](http://pjc0247.tistory.com/96)
 * __Japanese__
   * [日本語に書けた個人的なプロゼグットドのキュメンテーション](https://github.com/pjc0247/Merona.cs/blob/master/README_JP.md)
