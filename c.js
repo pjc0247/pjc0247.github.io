@@ -7,7 +7,7 @@ var downsampling_val = 10;
 var threshold_val = 100;
 
 var art = new Image();
-art.src = "album2.png";
+art.src = "album3.jpg";
 
 getLuminance = function(color){
   var rgb = color.split(',');
