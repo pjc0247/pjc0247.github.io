@@ -78,4 +78,26 @@ req.onreadystatechange = function(){
         updateCanvas();
     }
 };
+
+canvas.onmousemove = function(e) {
+    updateCanvas();
+    
+    ctx.fillStyle = 'blue';
+    ctx.beginPath();
+    ctx.ellipse(e.offsetX, e.offsetY, 3, 5, 45 * Math.PI/180, 0, 2 * Math.PI);
+    ctx.fill();
+
+    ctx.fillText(e.offsetX + ", " + e.offsetY, e.offsetX + 10, e.offsetY + 10);
+    
+    var bx = parseInt(e.offsetX / blocksize);
+    var by = parseInt(e.offsetY / blocksize);
+    
+    ctx.strokeStyle = 'red';
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.rect(bx * blocksize, by * blocksize, blocksize, blocksize);
+    ctx.stroke();
+    
+    ctx.fillText("t" + (by * (canvasWidth / blocksize) + bx), bx * blocksize, by * blocksize-4);
+}
 </script>
