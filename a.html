@@ -7,7 +7,9 @@
 <canvas id="canvas" width="1200px" height="1200px">
 </canvas>
 
+<script src="http://spin.js.org/spin.min.js"></script>
 <script>
+var state = 0;
 var canvasWidth = 1200;
 var canvasHeight = 1200;
 var blocksize = 12;
@@ -29,43 +31,51 @@ function updateCanvas() {
     ctx.putImageData(canvasData, 0, 0);
 }
 
+
+var spinner = new Spinner({
+    width: 30, radius: 42, left: '50%', top: '50%', color: '#000'
+}).spin(document.body);
+
 var req = new XMLHttpRequest();
-req.open('GET', 'https://jwvgtest.azurewebsites.net/api/GenerateMapData?code=ifMbPygn7iCbYduURc/zX/n2gJzD0lEqG1ej5apWKaacEhSC8DK6MA==&seed=' + seed, false);
+req.open('GET', 'https://jwvgtest.azurewebsites.net/api/GenerateMapData?code=ifMbPygn7iCbYduURc/zX/n2gJzD0lEqG1ej5apWKaacEhSC8DK6MA==&seed=' + seed);
 req.send(null);
+req.onreadystatechange = function(){
+    if(req.readyState == 4 && req.status == 200)
+    {
+        spinner.stop();
+        
+        var data = JSON.parse(req.responseText);
+        var map = data.worldProperty;
 
-if(req.status == 200)
-{
-    var data = JSON.parse(req.responseText);
-    var map = data.worldProperty;
 
+        for (var i=0; i<canvasWidth / blocksize;i++) {
+            for (var j=0;j<canvasHeight / blocksize;j++) {
 
-    for (var i=0; i<canvasWidth / blocksize;i++) {
-        for (var j=0;j<canvasHeight / blocksize;j++) {
+                for (var ii=0;ii<blocksize;ii++) {
+                    for (var jj=0;jj<blocksize;jj++) {
+                        var x = i * blocksize + ii;
+                        var y = j * blocksize + jj;
 
-            for (var ii=0;ii<blocksize;ii++) {
-                for (var jj=0;jj<blocksize;jj++) {
-                    var x = i * blocksize + ii;
-                    var y = j * blocksize + jj;
-
-                    var t = map["t" + ((i * canvasWidth / blocksize) + j)];
-                      
-                    if (t.charCodeAt(ii * blocksize + jj) == 1)
-                        drawPixel(x,y , 0, 255, 0, 255);        
-                    else if (t.charCodeAt(ii * blocksize + jj) == 2)
-                        drawPixel(x,y , 0, 0, 255, 255);
-                    else if (t.charCodeAt(ii * blocksize + jj) == 3)
-                        drawPixel(x,y , 0, 255, 255, 255);
-                    else if (t.charCodeAt(ii * blocksize + jj) == 4)
-                        drawPixel(x,y , 128, 128, 128, 255);
-                    else if (t.charCodeAt(ii * blocksize + jj) == 5)
-                        drawPixel(x,y , 0, 0, 0, 255);
+                        var t = map["t" + ((i * canvasWidth / blocksize) + j)];
+                        
+                        if (t.charCodeAt(ii * blocksize + jj) == 1)
+                            drawPixel(x,y , 0, 255, 0, 255);        
+                        else if (t.charCodeAt(ii * blocksize + jj) == 2)
+                            drawPixel(x,y , 0, 0, 255, 255);
+                        else if (t.charCodeAt(ii * blocksize + jj) == 3)
+                            drawPixel(x,y , 0, 255, 255, 255);
+                        else if (t.charCodeAt(ii * blocksize + jj) == 4)
+                            drawPixel(x,y , 128, 128, 128, 255);
+                        else if (t.charCodeAt(ii * blocksize + jj) == 5)
+                            drawPixel(x,y , 0, 0, 0, 255);
+                    }
                 }
             }
         }
-    }
 
-    console.log(String.fromCharCode(map.t0.charCodeAt(0) + 65) );
-    console.log(map);
-    updateCanvas();
-}
+        console.log(String.fromCharCode(map.t0.charCodeAt(0) + 65) );
+        console.log(map);
+        updateCanvas();
+    }
+};
 </script>
