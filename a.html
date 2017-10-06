@@ -1,0 +1,103 @@
+<form>
+    SEED : 
+<input id="seed" name="seed" />
+<input type="submit" />
+</form>
+
+<canvas id="canvas" width="1200px" height="1200px">
+</canvas>
+
+<script src="http://spin.js.org/spin.min.js"></script>
+<script>
+var state = 0;
+var canvasWidth = 1200;
+var canvasHeight = 1200;
+var blocksize = 12;
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+var seed = window.location.href.split("seed=")[1];
+
+var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+function drawPixel (x, y, r, g, b, a) {
+    var index = (x + y * canvasWidth) * 4;
+
+    canvasData.data[index + 0] = r;
+    canvasData.data[index + 1] = g;
+    canvasData.data[index + 2] = b;
+    canvasData.data[index + 3] = a;
+}
+function updateCanvas() {
+    ctx.putImageData(canvasData, 0, 0);
+}
+
+
+var spinner = new Spinner({
+    width: 30, radius: 42, left: '50%', top: '50%', color: '#000'
+}).spin(document.body);
+
+var req = new XMLHttpRequest();
+req.open('GET', 'https://jwvgtest.azurewebsites.net/api/GenerateMapData?code=ifMbPygn7iCbYduURc/zX/n2gJzD0lEqG1ej5apWKaacEhSC8DK6MA==&seed=' + seed);
+req.send(null);
+req.onreadystatechange = function(){
+    if(req.readyState == 4 && req.status == 200)
+    {
+        spinner.stop();
+        
+        var data = JSON.parse(req.responseText);
+        var map = data.worldProperty;
+
+
+        for (var i=0; i<canvasWidth / blocksize;i++) {
+            for (var j=0;j<canvasHeight / blocksize;j++) {
+
+                for (var ii=0;ii<blocksize;ii++) {
+                    for (var jj=0;jj<blocksize;jj++) {
+                        var x = i * blocksize + ii;
+                        var y = j * blocksize + jj;
+
+                        var t = map["t" + ((i * canvasWidth / blocksize) + j)];
+                        
+                        if (t.charCodeAt(ii * blocksize + jj) == 1)
+                            drawPixel(x,y , 0, 255, 0, 255);        
+                        else if (t.charCodeAt(ii * blocksize + jj) == 2)
+                            drawPixel(x,y , 0, 0, 255, 255);
+                        else if (t.charCodeAt(ii * blocksize + jj) == 3)
+                            drawPixel(x,y , 0, 255, 255, 255);
+                        else if (t.charCodeAt(ii * blocksize + jj) == 4)
+                            drawPixel(x,y , 128, 128, 128, 255);
+                        else if (t.charCodeAt(ii * blocksize + jj) == 5)
+                            drawPixel(x,y , 0, 0, 0, 255);
+                    }
+                }
+            }
+        }
+
+        console.log(String.fromCharCode(map.t0.charCodeAt(0) + 65) );
+        console.log(map);
+        updateCanvas();
+    }
+};
+
+canvas.onmousemove = function(e) {
+    updateCanvas();
+    
+    ctx.fillStyle = 'blue';
+    ctx.beginPath();
+    ctx.ellipse(e.offsetX, e.offsetY, 3, 5, 45 * Math.PI/180, 0, 2 * Math.PI);
+    ctx.fill();
+
+    ctx.fillText(e.offsetX + ", " + e.offsetY, e.offsetX + 10, e.offsetY + 10);
+    
+    var bx = parseInt(e.offsetX / blocksize);
+    var by = parseInt(e.offsetY / blocksize);
+    
+    ctx.strokeStyle = 'red';
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.rect(bx * blocksize, by * blocksize, blocksize, blocksize);
+    ctx.stroke();
+    
+    ctx.fillText("t" + (by * (canvasWidth / blocksize) + bx), bx * blocksize, by * blocksize-4);
+}
+</script>
