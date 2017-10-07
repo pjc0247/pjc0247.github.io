@@ -20,7 +20,7 @@ body {
 }
 
 .navbar-brand a {
-    font-family: alphaca;
+    font-family: alphaca, Times, serif;
 }
 
 .carousel-item {
