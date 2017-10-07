@@ -19,7 +19,7 @@ body {
     src: url(fonts/AlphaCar.ttf);
 }
 
-.navbar-brand a {
+.navbar-brand {
     font-family: alphaca, Times, serif;
 }
 
