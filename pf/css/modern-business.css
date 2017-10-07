@@ -16,7 +16,7 @@ body {
 
 @font-face {
     font-family: alphaca;
-    src: url(fonts/AlphaCar.ttf);
+    src: url(../fonts/AlphaCar.ttf);
 }
 
 .navbar-brand {
