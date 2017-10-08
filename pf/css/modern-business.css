@@ -22,6 +22,10 @@ body {
     font-family: alphaca;
     src: url(../fonts/AlphaClouds.ttf);
 }
+@font-face {
+    font-family: boldtext;
+    src: url(../fonts/Prototype.ttf);
+}
 
 .navbar-brand {
     font-family: alphaca, Times, serif;
@@ -30,6 +34,38 @@ body {
     padding-bottom: 0px !important;
     font-size: 1.55rem !important;
 }
+.capsule {
+}
+
+#me-img {
+    background-image: url('../imgs/figure.jpg');
+    background-size: 100% 100%;
+
+    width:540px;
+    height:405px;
+    box-shadow: 0 0 32px 16px white inset;
+    -webkit-box-shadow: 0 0 32px 16px white inset;
+    -moz-box-shadow: 0 0 32px 16px white inset;
+}
+#history {
+    font-size : 18pt;
+}
+#contacts {
+    width : 100%;
+}
+#contacts td {
+    text-align : center;
+    vertical-align : middle;
+}
+#contacts td p {
+    text-align : center;
+    vertical-align : middle;
+
+    margin-top : 5px;
+    font-size : 14pt;
+    font-family : boldtext;
+}
+
 
 .carousel-item {
     height: 65vh;
