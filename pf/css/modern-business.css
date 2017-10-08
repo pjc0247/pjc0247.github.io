@@ -14,6 +14,23 @@ body {
     }
 }
 
+@font-face {
+    font-family: alphacar;
+    src: url(../fonts/AlphaCar.ttf);
+}
+@font-face {
+    font-family: alphaca;
+    src: url(../fonts/AlphaClouds.ttf);
+}
+
+.navbar-brand {
+    font-family: alphaca, Times, serif;
+    
+    padding-top : 0px !important;
+    padding-bottom: 0px !important;
+    font-size: 1.55rem !important;
+}
+
 .carousel-item {
     height: 65vh;
     min-height: 300px;
