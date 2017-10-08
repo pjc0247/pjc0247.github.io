@@ -50,6 +50,37 @@ body {
 #history {
     font-size : 18pt;
 }
+#dev-specs {
+    width : 100%;
+}
+#dev-specs img {
+    max-width : 120px;
+}
+#dev-specs td {
+    width : 33.3%;
+}
+#dev-specs div p {
+    font-size: 60px !important;
+    vertical-align: middle;
+    text-align: center;
+    height: 100px;
+    width : 100%;
+
+    margin-bottom: 0px !important;
+}
+#dev-specs td {
+    text-align : center;
+    vertical-align : middle;
+}
+#dev-specs td p {
+    text-align : center;
+    vertical-align : middle;
+
+    margin-top : 5px;
+    font-size : 14pt;
+    font-family : boldtext;
+}
+
 #contacts {
     width : 100%;
 }
