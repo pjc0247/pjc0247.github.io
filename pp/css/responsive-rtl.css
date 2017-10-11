@@ -1,0 +1,33 @@
+/*
+Template Name: plume
+Template URL: http://gfort.co/plume
+Description: PLUME HTML5 Multipurpose Template
+Version: 1.3
+Author: Graphicfort
+Author URL: http://graphicfort.com
+License: Custom
+License URL: http://themeforest.net/licenses/standard
+*/
+
+
+
+
+@media (max-width: 1199px) {
+    ul.header-btns {
+        padding: 0;
+        margin: 0 15px 0 0;
+    }
+}
+@media (max-width: 991px) {
+    .header-section:not(.sidebar-header) ul.navbar-nav > li > a,
+    .header-section:not(.sidebar-header) .header-menu-left-side ul.navbar-nav > li > a,
+    .header-section:not(.sidebar-header) .header-menu-center-side ul.navbar-nav > li > a {
+        text-align: right;
+    }
+    .mtl { text-align: right !important; }
+}
+@media (max-width: 767px) {
+    .navbar-header {
+        float: right;
+    }
+}
