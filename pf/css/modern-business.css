@@ -15,6 +15,11 @@ body {
 }
 
 @font-face {
+    font-family: llewie;
+    src: url(../fonts/llewie.ttf);
+}
+
+@font-face {
     font-family: alphacar;
     src: url(../fonts/AlphaCar.ttf);
 }
@@ -25,6 +30,20 @@ body {
 @font-face {
     font-family: boldtext;
     src: url(../fonts/Prototype.ttf);
+}
+
+@font-face {
+    font-family: pixel;
+    src: url(../fonts/outline_pixel-7_solid.ttf);
+}
+@font-face {
+    font-family: pixel-small;
+    src: url(../fonts/small_bold_pixel-7.ttf);
+}
+
+nav li {
+    font-family: pixel;
+    font-size: 12.5pt;
 }
 
 .navbar-brand {

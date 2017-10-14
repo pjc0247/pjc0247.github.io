@@ -1,0 +1,43 @@
+
+@font-face {
+    font-family: about-body;
+    src: url(../fonts/EspressoDolce.ttf);
+}
+@font-face {
+    font-family: pixel-ice;
+    src: url(../fonts/DesignerPixels.ttf);
+}
+
+#name {
+    font-family: pixel;
+    font-size: 50px;
+}
+#name small {
+    font-family: pixel-small;
+    font-size: 40px;
+}
+
+h2 {
+    font-family: pixel;
+}
+h1 {
+    font-family: pixel;
+}
+ppp {
+    font-family: about-body;
+}
+li {
+    font-family: pixel;
+    font-size: 10.5pt;
+}
+
+ice {
+    font-family: pixel-ice;
+}
+
+#introduce {
+    font-family: pixel;
+}
+#contacts {
+    font-family: pixel-ice;
+}
