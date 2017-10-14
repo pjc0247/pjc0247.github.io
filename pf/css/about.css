@@ -35,6 +35,9 @@ ice {
     font-family: pixel-ice;
 }
 
+.card-header {
+    font-family: pixel;
+}
 #introduce {
     font-family: pixel;
 }
