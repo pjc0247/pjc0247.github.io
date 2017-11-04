@@ -19,3 +19,7 @@ li {
     font-family: body;
     font-size: 10.5pt;
 }
+
+#me-img {
+    background-image: url('../imgs/me.jpg');
+}
