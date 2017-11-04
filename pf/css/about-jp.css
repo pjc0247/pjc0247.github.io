@@ -4,6 +4,14 @@
     src: url(../fonts/ZakkuriGothic-BLK.otf);
 }
 @font-face {
+    font-family: body;
+    src: url(../fonts/Makinas-Scrap-5.otf);
+}
+@font-face {
     font-family: pixel-ice;
     src: url(../fonts/DesignerPixels.ttf);
+}
+
+p {
+    font-family: body;
 }
