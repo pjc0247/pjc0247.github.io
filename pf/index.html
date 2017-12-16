@@ -157,6 +157,36 @@
          0.5 year experience with iOS app development.
          </p>
       <br>
+      <br>
+
+      <h1>Keywords</h1>
+      <div id="tagcloud" style="left: calc(50% - 400px)">
+        <ul>
+          <!-- TREND -->
+          <li><a href="#">VR</a></li>
+          <li><a href="#">WebApp</a></li>
+          <li><a href="#">HTML5</a></li>
+          <li><a href="#">AR</a></li>
+          <li><a href="#">Blockchain</a></li>
+
+          <!-- TOOL -->
+          <li><a href="#">Unity</a></li>
+          <li><a href="#">Unreal</a></li>
+          <li><a href="#">XCode</a></li>
+          <li><a href="#">Angular</a></li>
+          <li><a href="#">ionic</a></li>
+          <li><a href="#">WFP</a></li>
+          <li><a href="#">OpenCV</a></li>
+
+          <!-- LANG -->
+          <li><a href="#">C++</a></li>
+          <li><a href="#">C#</a></li>
+          <li><a href="#">Ruby</a></li>
+          <li><a href="#">Typescript</a></li>
+          <li><a href="#">Javascript</a></li>
+          <li><a href="#">Solidity</a></li>
+        </ul>
+      </div>
 
       <h2>Foreign Languages</h2>
       <div class="row">
@@ -320,7 +350,31 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
+    <script src="js/tagcloud.jquery.min.js"></script>
   </body>
 
 </html>
+
+<script>
+var settings = {
+height: 300,
+width: 800,
+radius: 100,
+speed: 2,
+slower: 0.9,
+timer: 5,
+fontMultiplier: 55,
+hoverStyle: {
+border: 'none',
+color: '#0b2e6f'
+},
+mouseOutStyle: {
+border: '',
+color: ''
+}
+};
+
+$(document).ready(function(){
+$('#tagcloud').tagoSphere(settings);
+});
+</script>
