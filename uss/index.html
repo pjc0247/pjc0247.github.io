@@ -9,10 +9,35 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/uss.json");
     </script>
   </head>
-  <body style="margin:0;background:black">
+  <body style="margin:0;background:black;overflow:hidden">
+    <canvas id="bg-canvas" width="1920px" height="1080px" style="width:auto;height:100%;position:absolute;"></canvas>
+	<video id="video" style="display:none" autoplay loop controls="false" webkit-playsinline playsinline>
+		<source src="background.mp4" type="video/mp4" />
+	</video>
     <div id="gameContainer" style="margin:auto !important;"></div>
   </body>
 </html>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+$(function() {
+  var canvas = document.getElementById('bg-canvas');
+  var ctx = canvas.getContext('2d');
+  var video = document.getElementById('video');
+
+  video.addEventListener('play', function() {
+    var $this = this; //cache
+    (function loop() {
+      if (!$this.paused && !$this.ended) {
+        ctx.drawImage($this, 0, 0);
+        setTimeout(loop, 1000 / 30); // drawing at 30fps
+      }
+    })();
+  }, 0);
+});
+</script>
 <script>
   var canvas = document.getElementById("gameContainer");
   var body = document.body,
