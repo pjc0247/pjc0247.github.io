@@ -2,6 +2,7 @@ my-cpp-projects
 ====
 
 ### [STORM](https://github.com/pjc0247/STORM)
+mysql ORM for C++.
 ```cpp
 auto = results = query
   ->where("nickname", "foo")
@@ -12,6 +13,7 @@ for(auto result : results)
 ```
 
 ### [lemon](https://github.com/pjc02478/lemon)
+Coroutines for C++
 ```cpp
 void func(){
   printf("begin func\n");
