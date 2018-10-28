@@ -1,8 +1,9 @@
-<html>
+﻿<html>
     <head>
       <title>WELCOME</title>
 
       <link href="https://fonts.googleapis.com/css?family=Anton|Do+Hyeon|Francois+One|Varela+Round" rel="stylesheet"> 
+      <link rel="stylesheet" type="text/css" href="hover-min.css">
       <style>
           body {
             background-color: #86ABFF;
@@ -10,14 +11,27 @@
             font-family: 'Do Hyeon', sans-serif;
           }
 
-          #cv {
-            position: fixed;
-            left: calc(50% - 100px);
-            top: calc(50% - 100px);
+          .icon img {
+            width: 140px;
+            height: 140px;
+
+            padding-left: 25px;
           }
-          #cv img {
+          .icon span {
+            visibility: hidden;
+
+            position: absolute;
+            left: -5px;
+            top: -60px;
             width: 200px;
-            height: 200px;
+
+            text-align: center;
+          }
+          .icon:hover span {
+            visibility: visible;
+          }
+          .html5 span {
+            top: -78px;
           }
 
           .content {
@@ -28,7 +42,6 @@
             position: fixed;
             right: 5%;
             bottom: 1%;
-
             text-align: right;
           }
           h1 {
@@ -50,10 +63,7 @@
           }
           span {
               color: white;
-              font-size: 70px;
-              text-align: right;
-
-              text-decoration: underline;
+              font-size: 30px;
           }
 
           .english {
@@ -118,14 +128,22 @@
                 <h1 class="english text-pop-up-top">This is a pjc0247.github.io!</h1>
                 <h1 class="korean text-pop-up-top">안녕하세요</h1>
         </div>
-        <a id="cv" href="cv/cv.pdf"><img src="img/cvicon.png" /></a>
+        
         <div class="content2">
+            <a class="icon hvr-grow-rotate" href="cv/cv.pdf"><img src="img/cvicon.png" /><span>Download CV!</span></a>
+            <a class="icon hvr-grow-rotate" href="cv/cv.pdf"><img src="img/github.png" /><span>Github!</span></a>
+            <a class="icon hvr-grow-rotate" href="cv/cv.pdf"><img src="img/home.png" /><span>Portfolio</span></a>
+            <a class="html5 icon hvr-grow-rotate" href="cv/cv.pdf"><img src="img/html5.png" /><span>Interactive Portfolio</span></a>
+
+            <h2>I would recommend you to visit both of portfolios if you want to know about me.</h2>
+            <!--
                 <span onclick="window.location='https://gist.github.com/pjc0247/deb324b224a3c9ad00900c7157d0824a'">Github repositories (summary)</span><br>
                 <span onclick="window.location='http://pjc0247.github.io/pf'">HTML based portfolio website.</span><br>
                 <span onclick="window.location='http://uss-demo.firebaseapp.com/'">WebGL based portfolio website.</span>
                 
                 <br>
-                <h2>I would recommend you to visit both of portfolios if you want to know about me.</h2>
+                
+            -->
         </div>
     </body>
 </html>
