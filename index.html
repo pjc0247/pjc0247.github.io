@@ -7,6 +7,7 @@
       <style>
           body {
             background-color: #86ABFF;
+            transition: background-color 2s cubic-bezier(0.215, 0.610, 0.355, 1);
 
             font-family: 'Do Hyeon', sans-serif;
           }
@@ -132,10 +133,22 @@
         </div>
         
         <div class="content2">
-            <a class="icon hvr-grow-rotate" href="cv/cv.pdf"><img src="img/cvicon.png" /><span>Download CV!</span></a>
-            <a class="icon hvr-grow-rotate" href="https://gist.github.com/pjc0247/deb324b224a3c9ad00900c7157d0824a"><img src="img/github.png" /><span>Github!</span></a>
-            <a class="icon hvr-grow-rotate" href="http://pjc0247.github.io/pf"><img src="img/home.png" /><span>Portfolio</span></a>
-            <a class="html5 icon hvr-grow-rotate" href="http://uss-demo.firebaseapp.com/"><img src="img/html5.png" /><span>Interactive Portfolio</span></a>
+            <a class="icon hvr-grow-rotate cv"
+              onmouseover="set_bg('#F2CF66')"
+              onmouseout="set_bg('#86ABFF')" 
+              href="cv/cv.pdf"><img src="img/cvicon.png" /><span>Download CV!</span></a>
+            <a class="icon hvr-grow-rotate github"
+              onmouseover="set_bg('#F25790')"
+              onmouseout="set_bg('#86ABFF')" 
+              href="https://gist.github.com/pjc0247/deb324b224a3c9ad00900c7157d0824a"><img src="img/github.png" /><span>Github!</span></a>
+            <a class="icon hvr-grow-rotate pf"
+              onmouseover="set_bg('#81B7FF')"
+              onmouseout="set_bg('#86ABFF')" 
+              href="http://pjc0247.github.io/pf"><img src="img/home.png" /><span>Portfolio</span></a>
+            <a class="html5 icon hvr-grow-rotate pf-webgl"
+              onmouseover="set_bg('#EDB3FF')"
+              onmouseout="set_bg('#86ABFF')" 
+              href="http://uss-demo.firebaseapp.com/"><img src="img/html5.png" /><span>Interactive Portfolio</span></a>
 
             <h2>I would recommend you to visit both of portfolios if you want to know about me.</h2>
             <!--
@@ -149,3 +162,9 @@
         </div>
     </body>
 </html>
+
+<script>
+function set_bg(css_color) {
+  document.body.style.backgroundColor = css_color;
+}
+</script>
