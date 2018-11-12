@@ -27,12 +27,12 @@ ppp {
     font-family: about-body;
 }
 li {
-    font-family: pixel;
+    font-family: 'Kanit';
     font-size: 10.5pt;
 }
 
 ice {
-    font-family: pixel-ice;
+    font-family: 'Kanit';
 }
 
 .card-header {
